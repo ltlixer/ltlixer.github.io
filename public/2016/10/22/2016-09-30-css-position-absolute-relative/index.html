@@ -1,0 +1,724 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5173;&amp;#x4E8E;&amp;#x4F4D;&amp;#x7F6E;position&amp;#x7684;absolute&amp;#x548C;relative&amp;#x5C5E;&amp;#x6027;&amp;#x4ECA;&amp;#x5929;&amp;#x5728;&amp;#x7528;&amp;#x522B;&amp;#x4EBA;&amp;#x5199;&amp;#x7684;class&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x4F4D;&amp;#x7F6E;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于位置position的absolute和relative属性">
+<meta property="og:url" content="http://yoursite.com/2016/10/22/2016-09-30-css-position-absolute-relative/index.html">
+<meta property="og:site_name" content="ltlixer 点滴记录">
+<meta property="og:description" content="&amp;#x5173;&amp;#x4E8E;&amp;#x4F4D;&amp;#x7F6E;position&amp;#x7684;absolute&amp;#x548C;relative&amp;#x5C5E;&amp;#x6027;&amp;#x4ECA;&amp;#x5929;&amp;#x5728;&amp;#x7528;&amp;#x522B;&amp;#x4EBA;&amp;#x5199;&amp;#x7684;class&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x4F4D;&amp;#x7F6E;&amp;#x">
+<meta property="og:image" content="http://yoursite.com/2016/10/22/2016-09-30-css-position-absolute-relative/position_1.png">
+<meta property="og:image" content="http://yoursite.com/2016/10/22/2016-09-30-css-position-absolute-relative/position_2.png">
+<meta property="og:image" content="http://yoursite.com/2016/10/22/2016-09-30-css-position-absolute-relative/position_3.png">
+<meta property="og:updated_time" content="2016-10-22T12:02:02.714Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于位置position的absolute和relative属性">
+<meta name="twitter:description" content="&amp;#x5173;&amp;#x4E8E;&amp;#x4F4D;&amp;#x7F6E;position&amp;#x7684;absolute&amp;#x548C;relative&amp;#x5C5E;&amp;#x6027;&amp;#x4ECA;&amp;#x5929;&amp;#x5728;&amp;#x7528;&amp;#x522B;&amp;#x4EBA;&amp;#x5199;&amp;#x7684;class&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x4F4D;&amp;#x7F6E;&amp;#x">
+<meta name="twitter:image" content="http://yoursite.com/2016/10/22/2016-09-30-css-position-absolute-relative/position_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/22/2016-09-30-css-position-absolute-relative/"/>
+
+
+  <title> 关于位置position的absolute和relative属性 | ltlixer 点滴记录 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260651666&web_id=1260651666" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ltlixer 点滴记录</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                关于位置position的absolute和relative属性
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-22T18:04:56+08:00" content="2016-10-22">
+              2016-10-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/22/2016-09-30-css-position-absolute-relative/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/22/2016-09-30-css-position-absolute-relative/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">浏览次数：
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x5173;&#x4E8E;&#x4F4D;&#x7F6E;position&#x7684;absolute&#x548C;relative&#x5C5E;&#x6027;"><a href="#&#x5173;&#x4E8E;&#x4F4D;&#x7F6E;position&#x7684;absolute&#x548C;relative&#x5C5E;&#x6027;" class="headerlink" title="&#x5173;&#x4E8E;&#x4F4D;&#x7F6E;position&#x7684;absolute&#x548C;relative&#x5C5E;&#x6027;"></a>&#x5173;&#x4E8E;&#x4F4D;&#x7F6E;position&#x7684;absolute&#x548C;relative&#x5C5E;&#x6027;</h1><p>&#x4ECA;&#x5929;&#x5728;&#x7528;&#x522B;&#x4EBA;&#x5199;&#x7684;class&#x7684;&#x65F6;&#x5019;&#x4F4D;&#x7F6E;&#x6709;&#x70B9;&#x4E0D;&#x5BF9;&#x52B2;&#xFF0C;&#x5C31;&#x67E5;&#x770B;&#x4E86;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x53D1;&#x73B0;&#x662F;position&#x7684;&#x4F4D;&#x7F6E;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x5728;&#x641C;&#x7D22;absolute&#x548C;relative&#x7684;&#x65F6;&#x5019;&#x53D1;&#x73B0;&#x4E00;&#x7BC7;&#x535A;&#x6587;&#x4E0D;&#x9519;&#xFF0C;&#x8BB0;&#x5F55;&#x5E76;&#x5206;&#x4EAB;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<blockquote>
+<h1 id="&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;"><a href="#&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;" class="headerlink" title="&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;"></a><a href="http://blog.sina.com.cn/s/blog_4bcf4a5e010008o0.html" target="_blank" rel="external">&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;</a></h1><p><a href="http://blog.sina.com.cn/mnzj" target="_blank" rel="external">&#x76DF;&#x725B;&#x7684;&#x535A;&#x5BA2;</a></p>
+</blockquote>
+<p>&#x5B9A;&#x4F4D;&#x4E00;&#x76F4;&#x662F;WEB&#x6807;&#x51C6;&#x5E94;&#x7528;&#x4E2D;&#x7684;&#x96BE;&#x70B9;&#xFF0C;&#x5982;&#x679C;&#x7406;&#x4E0D;&#x6E05;&#x695A;&#x5B9A;&#x4F4D;&#x90A3;&#x4E48;&#x53EF;&#x80FD;&#x5E94;&#x5B9E;&#x73B0;&#x7684;&#x6548;&#x679C;&#x5B9E;&#x73B0;&#x4E0D;&#x4E86;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x7684;&#x6548;&#x679C;&#x53EF;&#x80FD;&#x4F1A;&#x8D70;&#x6837;&#x3002;&#x5982;&#x679C;&#x7406;&#x6E05;&#x4E86;&#x5B9A;&#x4F4D;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x90A3;&#x5B9A;&#x4F4D;&#x4F1A;&#x8BA9;&#x7F51;&#x9875;&#x5B9E;&#x73B0;&#x7684;&#x66F4;&#x52A0;&#x5B8C;&#x7F8E;&#x3002;</p>
+<h2 id="&#x5B9A;&#x4F4D;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;"><a href="#&#x5B9A;&#x4F4D;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;" class="headerlink" title="&#x5B9A;&#x4F4D;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;"></a>&#x5B9A;&#x4F4D;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</h2><p>&#x5728;CSS&#x4E2D;&#x5173;&#x4E8E;&#x5B9A;&#x4F4D;&#x7684;&#x5185;&#x5BB9;&#x662F;&#xFF1A;</p>
+<a id="more"></a>
+<ul>
+<li>position:relative | absolute | static | fixed</li>
+<li>static(&#x9759;&#x6001;) &#x6CA1;&#x6709;&#x7279;&#x522B;&#x7684;&#x8BBE;&#x5B9A;&#xFF0C;&#x9075;&#x5FAA;&#x57FA;&#x672C;&#x7684;&#x5B9A;&#x4F4D;&#x89C4;&#x5B9A;&#xFF0C;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;z-index&#x8FDB;&#x884C;&#x5C42;&#x6B21;&#x5206;&#x7EA7;&#x3002;</li>
+<li>relative(&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;) &#x5BF9;&#x8C61;&#x4E0D;&#x53EF;&#x5C42;&#x53E0;&#x3001;&#x4E0D;&#x8131;&#x79BB;&#x6587;&#x6863;&#x6D41;&#xFF0C;&#x53C2;&#x8003;&#x81EA;&#x8EAB;&#x9759;&#x6001;&#x4F4D;&#x7F6E;&#x901A;&#x8FC7; top,bottom,left,right &#x5B9A;&#x4F4D;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;z-index&#x8FDB;&#x884C;&#x5C42;&#x6B21;&#x5206;&#x7EA7;&#x3002;</li>
+<li>absolute(&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;) &#x8131;&#x79BB;&#x6587;&#x6863;&#x6D41;&#xFF0C;&#x901A;&#x8FC7; top,bottom,left,right &#x5B9A;&#x4F4D;&#x3002;&#x9009;&#x53D6;&#x5176;&#x6700;&#x8FD1;&#x4E00;&#x4E2A;&#x6700;&#x6709;&#x5B9A;&#x4F4D;&#x8BBE;&#x7F6E;&#x7684;&#x7236;&#x7EA7;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x7684;&#x7236;&#x7EA7;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x5B9A;&#x4F4D;&#x5C5E;&#x6027;&#xFF0C;absolute&#x5143;&#x7D20;&#x5C06;&#x4EE5;body&#x5750;&#x6807;&#x539F;&#x70B9;&#x8FDB;&#x884C;&#x5B9A;&#x4F4D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;z-index&#x8FDB;&#x884C;&#x5C42;&#x6B21;&#x5206;&#x7EA7;&#x3002;</li>
+<li>fixed&#xFF08;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;&#xFF09; &#x8FD9;&#x91CC;&#x6240;&#x56FA;&#x5B9A;&#x7684;&#x53C2;&#x7167;&#x5BF9;&#x50CF;&#x662F;&#x53EF;&#x89C6;&#x7A97;&#x53E3;&#x800C;&#x5E76;&#x975E;&#x662F;body&#x6216;&#x662F;&#x7236;&#x7EA7;&#x5143;&#x7D20;&#x3002;&#x53EF;&#x901A;&#x8FC7;z-index&#x8FDB;&#x884C;&#x5C42;&#x6B21;&#x5206;&#x7EA7;&#x3002;</li>
+</ul>
+<p><em>&#x6CE8;&#xFF1A;CSS&#x4E2D;&#x5B9A;&#x4F4D;&#x7684;&#x5C42;&#x53E0;&#x5206;&#x7EA7;&#xFF1A;z-index: auto | namber;</em></p>
+<p><em>auto &#x9075;&#x4ECE;&#x5176;&#x7236;&#x5BF9;&#x8C61;&#x7684;&#x5B9A;&#x4F4D;</em></p>
+<p><em>namber  &#x65E0;&#x5355;&#x4F4D;&#x7684;&#x6574;&#x6570;&#x503C;&#x3002;&#x53EF;&#x4E3A;&#x8D1F;&#x6570;</em></p>
+<h2 id="&#x5B9A;&#x4F4D;&#x7684;&#x539F;&#x7406;&#xFF1A;"><a href="#&#x5B9A;&#x4F4D;&#x7684;&#x539F;&#x7406;&#xFF1A;" class="headerlink" title="&#x5B9A;&#x4F4D;&#x7684;&#x539F;&#x7406;&#xFF1A;"></a>&#x5B9A;&#x4F4D;&#x7684;&#x539F;&#x7406;&#xFF1A;</h2><ol>
+<li>&#x53EF;&#x4EE5;&#x4F4D;&#x79FB;&#x7684;&#x5143;&#x7D20; &#xFF08;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#xFF09;</li>
+</ol>
+<p>&#x5728;&#x672C;&#x6587;&#x6D41;&#x4E2D;&#xFF0C;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x88AB;&#x6587;&#x672C;&#x6D41;&#x6240;&#x9650;&#x5236;&#x4E86;&#x81EA;&#x8EAB;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4F46;&#x662F;&#x901A;&#x8FC7;CSS&#x6211;&#x4EEC;&#x4F9D;&#x7136;&#x4F7F;&#x5F97;&#x8FD9;&#x4E9B;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x81EA;&#x5DF1;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;float&#x6765;&#x8BA9;&#x5143;&#x7D20;&#x6D6E;&#x52A8;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;margin&#x6765;&#x8BA9;&#x5143;&#x7D20;&#x4EA7;&#x751F;&#x4F4D;&#x7F6E;&#x79FB;&#x52A8;&#x3002;&#x4F46;&#x4E8B;&#x5B9E;&#x4E0A;&#x90A3;&#x5E76;&#x975E;&#x662F;&#x771F;&#x5B9E;&#x7684;&#x4F4D;&#x79FB;&#xFF0C;&#x56E0;&#x4E3A;&#xFF0C;&#x90A3;&#x53EA;&#x662F;&#x901A;&#x8FC7;&#x52A0;&#x5927;margin&#x503C;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#x969C;&#x773C;&#x6CD5;&#x3002;&#x800C;&#x771F;&#x6B63;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x4F4D;&#x79FB;&#x662F;&#x901A;&#x8FC7;top,right,bottom,left&#xFF08;&#x4E0B;&#x79F0;TRBL&#xFF0C;TRBL&#x53EF;&#x4EE5;&#x6298;&#x5206;&#x4F7F;&#x7528;&#x3002;&#xFF09;&#x9488;&#x5BF9;&#x4E00;&#x4E2A;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x7684;&#x5143;&#x7D20;&#x6240;&#x4EA7;&#x751F;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x56FE;&#xFF1A;</p>
+<p><img src="/2016/10/22/2016-09-30-css-position-absolute-relative/position_1.png" alt="&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;"></p>
+<p>&#x6211;&#x4EEC;&#x770B;&#x56FE;&#x4E2D;&#x662F;&#x4E00;&#x4E2A;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x7684;&#x5143;&#x7D20;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#first {</div><div class="line">width:200px;</div><div class="line">height: 50px;</div><div class="line">margin:25px;</div><div class="line">border:25px solid #333;</div><div class="line">padding:25px;</div><div class="line">position:relative;</div><div class="line">top: 50px;</div><div class="line">left: 50px;</div><div class="line">}</div><div class="line">&#x800C;&#x4E0B;&#x65B9;&#x662F;&#x4E00;&#x5757;&#x9ED8;&#x8BA4;&#x5B9A;&#x4F4D;&#x7684;&#x9ED1;&#x8272;&#x533A;&#x5757;</div><div class="line">#second {</div><div class="line">width:400px;</div><div class="line">height:75px;</div><div class="line">margin:0;</div><div class="line">border:0;</div><div class="line">padding:0;</div><div class="line">backgroud-color:#333;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x6211;&#x4EEC;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x5904;&#x5728;&#x6587;&#x672C;&#x6D41;&#x7684;&#x533A;&#x5757;&#x88AB;&#x4E0A;&#x9762;&#x7684;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x6321;&#x4F4F;&#x4E86;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x8FD9;&#x8BF4;&#x660E;&#xFF1A;&#x201C;&#x5F53;&#x5143;&#x7D20;&#x88AB;&#x8BBE;&#x7F6E;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x6216;&#x662F;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x540E;&#xFF0C;&#x5C06;&#x81EA;&#x52A8;&#x4EA7;&#x751F;&#x5C42;&#x53E0;&#xFF0C;&#x4ED6;&#x4EEC;&#x7684;&#x5C42;&#x53E0;&#x7EA7;&#x522B;&#x81EA;&#x7136;&#x7684;&#x9AD8;&#x4E8E;&#x6587;&#x672C;&#x6D41;&#x201D;&#x3002;&#x9664;&#x975E;&#x8BBE;&#x7F6E;&#x5176;z-index&#x503C;&#x4E3A;&#x8D1F;&#x503C;&#x3002;&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x5F53;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x4F4D;&#x79FB;&#x540E;&#xFF0C;&#x8868;&#x73B0;&#x5185;&#x5BB9;&#x5DF2;&#x7ECF;&#x8131;&#x79BB;&#x4E86;&#x6587;&#x672C;&#x6D41;&#xFF0C;&#x53EA;&#x662F;&#x5728;&#x672C;&#x6587;&#x6D41;&#x4E2D;&#x8FD8;&#x4E3A;&#x539F;&#x6765;&#x7684;&#x76F8;&#x5BF9;&#x5BF9;&#x5B9A;&#x4F4D;&#x7559;&#x4E0B;&#x4E86;&#x539F;&#x6709;&#x7684;&#x603B;&#x5BBD;&#x4E0E;&#x603B;&#x9AD8;&#xFF08;&#x5185;&#x5BB9;&#x7684;&#x9AD8;&#x5EA6;&#x6216;&#x662F;&#x5BBD;&#x5EA6;&#x52A0;&#x4E0A; margin\border\padding&#x7684;&#x6570;&#x503C;&#xFF09;&#x3002;&#x8FD9;&#x8BF4;&#x660E;&#x5728;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x4E2D;&#xFF0C;&#x867D;&#x7136;&#x8868;&#x73B0;&#x533A;&#x8131;&#x79BB;&#x4E86;&#x539F;&#x6765;&#x7684;&#x6587;&#x672C;&#x6D41;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x6587;&#x672C;&#x6D41;&#x4E2D;&#x8FD8;&#x8FD8;&#x6709;&#x6B64;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x7684;&#x8001;&#x7AA9;&#x3002;&#x8FD9;&#x70B9;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#x5982;&#x679C;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x7684;&#x4F4D;&#x79FB;&#x6570;&#x503C;&#x8FC7;&#x5927;&#xFF0C;&#x90A3;&#x4E48;&#x539F;&#x6709;&#x7684;&#x533A;&#x57DF;&#x5C31;&#x4F1A;&#x5F62;&#x6210;&#x4E00;&#x5757;&#x7A7A;&#x767D;&#x3002;</p>
+<p>&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x6CE8;&#x610F;&#xFF0C;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x7684;&#x5750;&#x6807;&#x70B9;&#x662F;&#x5728;margin&#x503C;&#x7684;&#x5DE6;&#x4E0A;&#x8FB9;&#x7F18;&#x70B9;&#xFF0C;&#x5373;&#x56FE;&#x4E2D;&#x7684;B&#x70B9;&#x3002;&#x90A3;&#x4E48;&#x6240;&#x6709;&#x7684;&#x4F4D;&#x79FB;&#x7684;&#x8BA1;&#x7B97;&#x5C06;&#x4EE5;&#x8FD9;&#x4E2A;&#x70B9;&#x4E3A;&#x57FA;&#x7840;&#x8FDB;&#x884C;&#x5143;&#x7D20;&#x7684;&#x63A8;&#x52A8;&#x3002;</p>
+<ol>
+<li>&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x7684;&#x5143;&#x7D20;&#xFF08;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#xFF09;</li>
+</ol>
+<p>&#x5982;&#x4E0A;&#x6240;&#x8FF0;&#xFF1A;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x53EA;&#x53EF;&#x4EE5;&#x5728;&#x6587;&#x672C;&#x6D41;&#x4E2D;&#x8FDB;&#x884C;&#x4F4D;&#x7F6E;&#x7684;&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#x7684;&#x79FB;&#x52A8;&#xFF0C;&#x540C;&#x6837;&#x5B58;&#x5728;&#x4E00;&#x5B9A;&#x7684;&#x5C40;&#x9650;&#x6027;&#xFF0C;&#x867D;&#x7136;&#x4ED6;&#x7684;&#x8868;&#x73B0;&#x533A;&#x8131;&#x79BB;&#x4E86;&#x6587;&#x672C;&#x6D41;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x6587;&#x672C;&#x6D41;&#x5374;&#x4F9D;&#x7136;&#x4E3A;&#x5176;&#x4FDD;&#x7559;&#x4E86;&#x4E00;&#x5E2D;&#x4E4B;&#x5730;&#xFF0C;&#x8FD9;&#x5C31;&#x597D;&#x6BD4;&#x4E00;&#x4E2A;&#x6253;&#x5DE5;&#x7684;&#x4EBA;&#x4ED6;&#x5230;&#x4E86;&#x5916;&#x5730;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x8001;&#x5BB6;&#x4F9D;&#x7136;&#x6709;&#x4E00;&#x4E2A;&#x4E13;&#x5C5E;&#x4E8E;&#x4ED6;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;&#x4E0D;&#x968F;&#x4ED6;&#x7684;&#x79FB;&#x52A8;&#x800C;&#x6539;&#x53D8;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x5F88;&#x660E;&#x663E;&#x5C31;&#x4F1A;&#x7A7A;&#x51FA;&#x4E00;&#x5757;&#x7A7A;&#x767D;&#x6765;&#xFF0C;&#x5982;&#x679C;&#x5E0C;&#x671B;&#x6587;&#x672C;&#x6D41;&#x629B;&#x5F03;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x5C31;&#x9700;&#x8981;&#x7528;&#x5230;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x3002;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x4E0D;&#x5149;&#x8131;&#x79BB;&#x4E86;&#x6587;&#x672C;&#x6D41;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x6587;&#x672C;&#x6D41;&#x4E2D;&#x4E5F;&#x4E0D;&#x4F1A;&#x7ED9;&#x8FD9;&#x4E2A;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x7559;&#x4E0B;&#x4E13;&#x5C5E;&#x7A7A;&#x4F4D;&#x3002;&#x8FD9;&#x5C31;&#x597D;&#x6BD4;&#x662F;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x91CC;&#x7684;&#x804C;&#x4F4D;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x4EBA;&#x8D70;&#x4E86;&#x81EA;&#x7136;&#x4F1A;&#x8981;&#x6709;&#x522B;&#x7684;&#x5DE5;&#x4EBA;&#x6765;&#x586B;&#x5145;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;&#x3002;&#x800C;&#x79FB;&#x52A8;&#x51FA;&#x53BB;&#x7684;&#x90E8;&#x5206;&#x81EA;&#x7136;&#x4E5F;&#x5C31;&#x6210;&#x4E3A;&#x4E86;&#x81EA;&#x7531;&#x4F53;&#x3002;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x5C06;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;TRBL&#x6765;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#xFF0C;&#x4F7F;&#x4E4B;&#x5904;&#x5728;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x3002;&#x5728;&#x7236;&#x5C42;position&#x5C5E;&#x6027;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;&#x65F6;&#xFF0C;TRBL&#x7684;&#x5750;&#x6807;&#x539F;&#x70B9;&#x4EE5;body&#x7684;&#x5750;&#x6807;&#x539F;&#x70B9;&#x4E3A;&#x8D77;&#x59CB;&#x3002;&#x770B;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="/2016/10/22/2016-09-30-css-position-absolute-relative/position_2.png" alt="&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;"></p>
+<p>&#x4E0A;&#x56FE;&#x53EF;&#x77E5;&#xFF0C;&#x6587;&#x672C;&#x6D41;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x9876;&#x66FF;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x65E0;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E00;&#x70B9;&#x90FD;&#x4E0D;&#x4F1A;&#x5BA2;&#x6C14;&#x3002;&#x800C;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x81EA;&#x7136;&#x7684;&#x5C42;&#x53E0;&#x4E8E;&#x6587;&#x672C;&#x6D41;&#x4E4B;&#x4E0A;&#x3002;&#x800C;&#x5728;&#x5355;&#x4E00;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x4E2D;&#xFF0C;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x5C06;&#x4F1A;&#x8DD1;&#x5230;&#x7F51;&#x9875;&#x7684;&#x5DE6;&#x4E0A;&#x89D2;&#xFF0C;&#x56E0;&#x4E3A;&#x90A3;&#x91CC;&#x662F;&#x4ED6;&#x4EEC;&#x7684;&#x88AB;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x540E;&#x7684;&#x5750;&#x6807;&#x539F;&#x70B9;&#x3002;</p>
+<ol>
+<li>&#x88AB;&#x5173;&#x8054;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;</li>
+</ol>
+<p>&#x4E0A;&#x9762;&#x8BF4;&#x7684;&#x662F;&#x5355;&#x4E00;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#xFF0C;&#x800C;&#x5728;&#x5B9E;&#x9645;&#x7684;&#x5E94;&#x7528;&#x4E2D;&#x6211;&#x4EEC;&#x5E38;&#x5E38;&#x4F1A;&#x9700;&#x8981;&#x7528;&#x5230;&#x4E00;&#x79CD;&#x7279;&#x522B;&#x7684;&#x5F62;&#x5F0F;&#x3002;&#x5373;&#x5E0C;&#x671B;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x8981;&#x6709;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x4F46;&#x662F;&#x53C8;&#x5E0C;&#x671B;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x7684;&#x5750;&#x6807;&#x539F;&#x70B9;&#x53EF;&#x4EE5;&#x56FA;&#x5B9A;&#x5728;&#x7F51;&#x9875;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x70B9;&#xFF0C;&#x5F53;&#x8FD9;&#x4E2A;&#x70B9;&#x88AB;&#x79FB;&#x52A8;&#x65F6;&#x7EDD;&#x5BF9;&#x4F4D;&#x5B9A;&#x5143;&#x7D20;&#x80FD;&#x4FDD;&#x8BC1;&#x76F8;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x539F;&#x5750;&#x6807;&#x7684;&#x76F8;&#x5BF9;&#x4F4D;&#x7F6E;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x9700;&#x8981;&#x8FD9;&#x4E2A;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x8981;&#x8DDF;&#x7740;&#x7F51;&#x9875;&#x79FB;&#x52A8;&#xFF0C;&#x800C;&#x5E76;&#x4E14;&#x662F;&#x56E0;&#x5B9A;&#x5728;&#x7F51;&#x9875;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x4F4D;&#x7F6E;&#x3002;&#x901A;&#x5E38;&#x5F53;&#x7F51;&#x9875;&#x662F;&#x5C45;&#x4E2D;&#x5F62;&#x5F0F;&#x7684;&#x65F6;&#x5019;&#x8FD9;&#x79CD;&#x6548;&#x679C;&#x5C31;&#x4F1A;&#x663E;&#x5F97;&#x7279;&#x522B;&#x7684;&#x91CD;&#x8981;&#x3002;&#x8981;&#x5B9E;&#x73B0;&#x8FD9;&#x79CD;&#x6548;&#x679C;&#x57FA;&#x672C;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x4E3A;&#x8FD9;&#x4E2A;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x7684;&#x7236;&#x7EA7;&#x8BBE;&#x7F6E;&#x4E3A;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x6216;&#x662F;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x3002;&#x90A3;&#x4E48;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x7684;&#x5750;&#x6807;&#x5C31;&#x4F1A;&#x4EE5;&#x7236;&#x7EA7;&#x4E3A;&#x5750;&#x6807;&#x8D77;&#x59CB;&#x70B9;&#x3002;</p>
+<p>&#x867D;&#x7136;&#x662F;&#x5982;&#x6B64;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x5750;&#x6807;&#x539F;&#x70B9;&#x5374;&#x5E76;&#x4E0D;&#x662F;&#x7236;&#x7EA7;&#x7684;&#x5750;&#x6807;&#x539F;&#x70B9;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x5947;&#x602A;&#x7684;&#x5750;&#x6807;&#x4F4D;&#x7F6E;&#x3002;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B;&#x6A21;&#x578B;&#x56FE;&#x793A;&#xFF1A;</p>
+<p><img src="/2016/10/22/2016-09-30-css-position-absolute-relative/position_3.png" alt="&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;"></p>
+<p>&#x6211;&#x4EEC;&#x770B;&#x5230;&#xFF0C;&#x8FD9;&#x4E2A;&#x56FE;&#x4E2D;&#x7236;&#x7EA7;&#x4E3A;&#x9ED1;&#x7070;&#x8272;&#x533A;&#x5757;&#xFF0C;&#x5B50;&#x7EA7;&#x4E3A;&#x9752;&#x8272;&#x533A;&#x5757;&#x3002;&#x7236;&#x7EA7;&#x662F;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#xFF0C;&#x5B50;&#x7EA7;&#x662F;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x3002;&#x5B50;&#x7EA7;&#x8BBE;&#x7F6E;&#x4E86;&#x9876;&#x90E8;&#x4F4D;&#x79FB;50&#x4E2A;&#x50CF;&#x7D20;&#xFF0C;&#x5DE6;&#x503E;&#x4F4D;&#x79FB;50&#x4E2A;&#x50CF;&#x7D20;&#x3002;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x770B;&#xFF0C;&#x5B50;&#x7EA7;&#x7684;&#x5750;&#x6807;&#x539F;&#x70B9;&#x5E76;&#x4E0D;&#x662F;&#x4ECE;&#x7236;&#x7EA7;&#x7684;&#x5750;&#x6807;&#x539F;&#x70B9;&#x4F4D;&#x79FB;50&#x4E2A;&#x50CF;&#x7D20;&#xFF0C;&#x800C;&#x662F;&#x4ECE;&#x7236;&#x7EA7;&#x5757;&#x7684;padding&#x5DE6;&#x4E0A;&#x8FB9;&#x7F18;&#x70B9;&#x4E3A;&#x5750;&#x6807;&#x8D77;&#x59CB;&#x70B9;&#xFF08;&#x5373;A &#x70B9;&#xFF09;&#x3002;&#x800C;&#x7236;&#x7EA7;&#x8FD9;&#x91CC;&#x5982;&#x679C;&#x8981;&#x4EA7;&#x751F;&#x4F4D;&#x7F6E;&#x79FB;&#x52A8;&#xFF0C;&#x6216;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x6709;&#x6240;&#x53D8;&#x52A8;&#x90FD;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x8FD9;&#x4E2A;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x4E0E;&#x7236;&#x7EA7;&#x7684;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x7684;&#x4F4D;&#x7F6E;&#x5173;&#x7CFB;&#x3002;&#x8FD9;&#x4E2A;&#x5B50;&#x7EA7;&#x4E5F;&#x4E0D;&#x7528;&#x8C03;&#x6574;&#x6570;&#x503C;&#x3002;<br>&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x5F88;&#x7279;&#x522B;&#x5E76;&#x4E14;&#x4E5F;&#x662F;&#x975E;&#x5E38;&#x5B9E;&#x7528;&#x7684;&#x5E94;&#x7528;&#x65B9;&#x5F0F;&#x3002;&#x5982;&#x679C;&#x4F60;&#x4E4B;&#x524D;&#x5BF9;&#x4E8E;&#x5B9A;&#x4F4D;&#x7684;&#x63A7;&#x5236;&#x5E76;&#x4E0D;&#x81EA;&#x5982;&#x7684;&#x8BDD;&#xFF0C;&#x76F8;&#x4FE1;&#x770B;&#x5B8C;&#x5BF9;&#x8FD9;&#x91CC;&#x5BF9;&#x5B9A;&#x4F4D;&#x7684;&#x89E3;&#x91CA;&#x4E00;&#x5B9A;&#x53EF;&#x4EE5;&#x628A;&#x5B9A;&#x4F4D;&#x4F7F;&#x7528;&#x5F97;&#x968F;&#x5FC3;&#x6240;&#x6B32;&#x3002;</p>
+<ol>
+<li>&#x603B;&#x5728;&#x89C6;&#x7EBF;&#x91CC;&#x7684;&#x5143;&#x7D20; &#xFF08;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;&#xFF09;</li>
+</ol>
+<p>position:fixed; &#x4ED6;&#x7684;&#x542B;&#x4E49;&#x5C31;&#x662F;&#xFF1A;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;&#x3002;&#x8FD9;&#x4E2A;&#x56FA;&#x5B9A;&#x4E0E;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x5F88;&#x50CF;&#xFF0C;&#x552F;&#x4E00;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x662F;&#x88AB;&#x56FA;&#x5B9A;&#x5728;&#x7F51;&#x9875;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;&#x800C;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;&#x5219;&#x662F;&#x56FA;&#x5B9A;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x89C6;&#x6846;&#x4F4D;&#x7F6E;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/22/2016-05-18-JEECMS-Views/" rel="next" title="JEECMS内容浏览次数">
+                <i class="fa fa-chevron-left"></i> JEECMS内容浏览次数
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/22/2016-10-22-JEECMS-titleImg/" rel="prev" title="JEECMS新闻图片-[#break]标签">
+                JEECMS新闻图片-[#break]标签 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/22/2016-09-30-css-position-absolute-relative/"
+           data-title="关于位置position的absolute和relative属性" data-url="http://yoursite.com/2016/10/22/2016-09-30-css-position-absolute-relative/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="ltlixer" />
+          <p class="site-author-name" itemprop="name">ltlixer</p>
+          <p class="site-description motion-element" itemprop="description">( •̀ .̫ •́ )✧</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于位置position的absolute和relative属性"><span class="nav-number">1.</span> <span class="nav-text">关于位置position的absolute和relative属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#详解定位与定位应用"><span class="nav-number">2.</span> <span class="nav-text">详解定位与定位应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位的定义："><span class="nav-number">2.1.</span> <span class="nav-text">定位的定义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位的原理："><span class="nav-number">2.2.</span> <span class="nav-text">定位的原理：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ltlixer</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">浏览次数：<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv">浏览次数：<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ltlixer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+</body>
+</html>
