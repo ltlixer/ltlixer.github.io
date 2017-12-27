@@ -2,7 +2,7 @@
 tags: JEECMS
 categories: 前端
 title: JEECMS内容浏览次数
-date: 2016年05月18日 星期三
+date: 2016-05-18
 ---
 
 ## 内容浏览次数

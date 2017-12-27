@@ -2,7 +2,7 @@
 tags: Echarts
 categories: 前端
 title: Echarts使用地图时发现地图行政区划没更新
-date: 2016年09月27日 星期二
+date: 2016-09-27
 ---
 ### 使用地图时发现地图行政区划没更新
 

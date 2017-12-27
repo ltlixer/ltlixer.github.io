@@ -1,15 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -27,48 +34,13 @@
 
 
 
-  
-  
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
   
   
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -76,8 +48,31 @@
 
 
 
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ltlixer,点滴记录" />
+
+
+
+
 
 
 
@@ -90,37 +85,46 @@
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="ltlixer 点滴记录">
 <meta property="og:description" content="( •̀ .̫ •́ )✧">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ltlixer 点滴记录">
 <meta name="twitter:description" content="( •̀ .̫ •́ )✧">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://yoursite.com/"/>
 
 
-  <title> ltlixer 点滴记录 </title>
-</head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
+
+  <title>ltlixer 点滴记录</title>
   
 
 
@@ -130,44 +134,43 @@
 
 
 
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=1260651666&web_id=1260651666" language="JavaScript"></script>
-  </div>
+</head>
 
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">ltlixer 点滴记录</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ltlixer 点滴记录</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-  <p class="site-subtitle"></p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -187,18 +190,18 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            分类
+            关于
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -207,22 +210,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            归档
+            分类
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            关于
+            归档
           </a>
         </li>
       
@@ -233,6 +236,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -247,13 +252,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/2017-12-27-spring-data-redis缓存的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ltlixer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ltlixer 点滴记录">
+    </span>
 
     
       <header class="post-header">
@@ -261,46 +280,49 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/22/2016-10-22-JEECMS-titleImg/" itemprop="url">
-                  JEECMS新闻图片-[#break]标签
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/12/27/2017-12-27-spring-data-redis缓存的使用/" itemprop="url">spring-data-redis缓存的使用</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-22T21:16:32+08:00" content="2016-10-22">
-              2016-10-22
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T16:53:23+08:00">
+                2017-12-27
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
                   </a>
                 </span>
 
                 
                 
-
               
             </span>
           
@@ -308,25 +330,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/22/2016-10-22-JEECMS-titleImg/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/22/2016-10-22-JEECMS-titleImg/" itemprop="commentsCount"></span>
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/27/2017-12-27-spring-data-redis缓存的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/27/2017-12-27-spring-data-redis缓存的使用/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -334,28 +364,198 @@
 
       
         
-          <p>&#x5728;&#x505A;jeecms&#x65B0;&#x95FB;&#x7F51;&#x7AD9;&#x5F00;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9047;&#x5230;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x9700;&#x6C42;&#xFF1A;&#x9996;&#x9875;&#x9700;&#x8981;&#x5728;&#x65B0;&#x95FB;&#x65C1;&#x8FB9;&#x663E;&#x793A;&#x56FE;&#x7247;&#xFF0C;&#x65B0;&#x95FB;&#x4E0D;&#x6DFB;&#x52A0;&#x6807;&#x9898;&#x56FE;&#x7684;&#x65F6;&#x5019;&#x663E;&#x793A;&#x9ED8;&#x8BA4;&#x56FE;&#x7247;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x65B0;&#x95FB;&#x6DFB;&#x52A0;&#x6807;&#x9898;&#x56FE;&#x65F6;&#x663E;&#x793A;&#x6700;&#x8FD1;&#x6DFB;&#x52A0;&#x7684;&#x4E00;&#x6761;&#x65B0;&#x95FB;&#x7684;&#x6807;&#x9898;&#x56FE;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;<br><img src="/2016/10/22/2016-10-22-JEECMS-titleImg/xuqiu.png" alt="&#x65B0;&#x95FB;&#x52A8;&#x6001;"></p>
-<p>&#x601D;&#x8DEF;&#xFF1A;&#x7528;&#x6807;&#x7B7E;&#x5C06;&#x6240;&#x6709;&#x7684;&#x65B0;&#x95FB;&#x6807;&#x9898;&#x56FE;&#x83B7;&#x53D6;&#x5230;js&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x518D;&#x7528;js&#x8FDB;&#x884C;&#x63A7;&#x5236;&#x663E;&#x793A;&#x6700;&#x8FD1;&#x7684;&#x4E00;&#x5F20;&#x56FE;&#x7247;</p>
-<p>&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x5F53;&#x65B0;&#x95FB;&#x6570;&#x91CF;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x6709;&#x6027;&#x80FD;&#x4E0A;&#x7684;&#x635F;&#x5931;&#xFF0C;&#x9875;&#x9762;&#x52A0;&#x8F7D;&#x4F1A;&#x5F88;&#x5361;&#x3002;</p>
-<p>&#x7531;&#x4E8E;jeecms&#x662F;&#x7528;java&#x5F00;&#x53D1;&#x7684;&#xFF0C;&#x6211;&#x4FBF;&#x5C1D;&#x8BD5;&#x7528;&#x4E86;break&#x6807;&#x7B7E;&#xFF08;&#x6587;&#x6863;&#x4E0A;&#x6CA1;&#x6709;&#x7684;&#xFF09;&#xFF0C;&#x7ADF;&#x7136;&#x53EF;&#x4EE5;&#x7528;&#xFF0C;&#x8FD9;&#x5C31;&#x53EF;&#x4EE5;&#x7528;tags&#x83B7;&#x53D6;&#x5230;&#x6709;&#x6807;&#x9898;&#x56FE;&#x7684;&#x6700;&#x8FD1;&#x4E00;&#x6761;&#x65B0;&#x95FB;&#x4E86;&#x3002;</p>
-          <div class="post-more-link text-center">
+          <p>公司最近需要将一个老项目升级，其中涉及到缓存，从memcached到Redis。</p>
+<ul>
+<li>redis与 memcached相比，redis支持key-value数据类型，同事支持list、set、hash等数据结构的存储。</li>
+<li>redis支持数据的备份，即master-slave模式的数据备份。</li>
+<li>redis支持数据的持久化。</li>
+<li>redis在很多方面支持数据库的特性，可以这样说他就是一个数据库系统，而memcached只是简单地K/V缓存。</li>
+<li>它们在性能方面差别不是很大，读取方面尤其是针对批量读取性能方面memcached占据优势。当然redis也有他的优点，如持久性、支持更多的数据结构。</li>
+<li>所以在选择方面如果有持久方面的需求或对数据类型和处理有要求的应该选择redis。</li>
+</ul>
+<p>如果简单的key/value 存储应该选择memcached</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/27/2017-12-27-spring-data-redis缓存的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/22/2016-10-22-JEECMS-titleImg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ltlixer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ltlixer 点滴记录">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/10/22/2016-10-22-JEECMS-titleImg/" itemprop="url">JEECMS新闻图片-[#break]标签</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-22T00:00:00+08:00">
+                2016-10-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/10/22/2016-10-22-JEECMS-titleImg/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/22/2016-10-22-JEECMS-titleImg/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在做jeecms新闻网站开发的时候，遇到这么一个需求：首页需要在新闻旁边显示图片，新闻不添加标题图的时候显示默认图片，其中有新闻添加标题图时显示最近添加的一条新闻的标题图，如下图：<br><img src="/2016/10/22/2016-10-22-JEECMS-titleImg/xuqiu.png" alt="新闻动态"></p>
+<p>思路：用标签将所有的新闻标题图获取到js数组中，再用js进行控制显示最近的一张图片</p>
+<p>用这种方法，当新闻数量很多的时候，就会有性能上的损失，页面加载会很卡。</p>
+<p>由于jeecms是用java开发的，我便尝试用了break标签（文档上没有的），竟然可以用，这就可以用tags获取到有标题图的最近一条新闻了。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/22/2016-10-22-JEECMS-titleImg/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -365,6 +565,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -372,13 +576,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/22/hexo-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ltlixer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ltlixer 点滴记录">
+    </span>
 
     
       <header class="post-header">
@@ -386,38 +604,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/22/2016-09-30-css-position-absolute-relative/" itemprop="url">
-                  关于位置position的absolute和relative属性
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/10/22/hexo-install/" itemprop="url">搭建github博客-hexo安装与使用</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-22T18:04:56+08:00" content="2016-10-22">
-              2016-10-22
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-22T00:00:00+08:00">
+                2016-10-22
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/前端/" itemprop="url" rel="index">
                     <span itemprop="name">前端</span>
                   </a>
@@ -425,7 +647,6 @@
 
                 
                 
-
               
             </span>
           
@@ -433,400 +654,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/22/2016-09-30-css-position-absolute-relative/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/22/2016-09-30-css-position-absolute-relative/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="&#x5173;&#x4E8E;&#x4F4D;&#x7F6E;position&#x7684;absolute&#x548C;relative&#x5C5E;&#x6027;"><a href="#&#x5173;&#x4E8E;&#x4F4D;&#x7F6E;position&#x7684;absolute&#x548C;relative&#x5C5E;&#x6027;" class="headerlink" title="&#x5173;&#x4E8E;&#x4F4D;&#x7F6E;position&#x7684;absolute&#x548C;relative&#x5C5E;&#x6027;"></a>&#x5173;&#x4E8E;&#x4F4D;&#x7F6E;position&#x7684;absolute&#x548C;relative&#x5C5E;&#x6027;</h1><p>&#x4ECA;&#x5929;&#x5728;&#x7528;&#x522B;&#x4EBA;&#x5199;&#x7684;class&#x7684;&#x65F6;&#x5019;&#x4F4D;&#x7F6E;&#x6709;&#x70B9;&#x4E0D;&#x5BF9;&#x52B2;&#xFF0C;&#x5C31;&#x67E5;&#x770B;&#x4E86;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x53D1;&#x73B0;&#x662F;position&#x7684;&#x4F4D;&#x7F6E;&#x95EE;&#x9898;&#x3002;</p>
-<p>&#x5728;&#x641C;&#x7D22;absolute&#x548C;relative&#x7684;&#x65F6;&#x5019;&#x53D1;&#x73B0;&#x4E00;&#x7BC7;&#x535A;&#x6587;&#x4E0D;&#x9519;&#xFF0C;&#x8BB0;&#x5F55;&#x5E76;&#x5206;&#x4EAB;&#x4E00;&#x4E0B;&#xFF1A;</p>
-<blockquote>
-<h1 id="&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;"><a href="#&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;" class="headerlink" title="&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;"></a><a href="http://blog.sina.com.cn/s/blog_4bcf4a5e010008o0.html">&#x8BE6;&#x89E3;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B9A;&#x4F4D;&#x5E94;&#x7528;</a></h1><p><a href="http://blog.sina.com.cn/mnzj">&#x76DF;&#x725B;&#x7684;&#x535A;&#x5BA2;</a></p>
-</blockquote>
-<p>&#x5B9A;&#x4F4D;&#x4E00;&#x76F4;&#x662F;WEB&#x6807;&#x51C6;&#x5E94;&#x7528;&#x4E2D;&#x7684;&#x96BE;&#x70B9;&#xFF0C;&#x5982;&#x679C;&#x7406;&#x4E0D;&#x6E05;&#x695A;&#x5B9A;&#x4F4D;&#x90A3;&#x4E48;&#x53EF;&#x80FD;&#x5E94;&#x5B9E;&#x73B0;&#x7684;&#x6548;&#x679C;&#x5B9E;&#x73B0;&#x4E0D;&#x4E86;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x7684;&#x6548;&#x679C;&#x53EF;&#x80FD;&#x4F1A;&#x8D70;&#x6837;&#x3002;&#x5982;&#x679C;&#x7406;&#x6E05;&#x4E86;&#x5B9A;&#x4F4D;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x90A3;&#x5B9A;&#x4F4D;&#x4F1A;&#x8BA9;&#x7F51;&#x9875;&#x5B9E;&#x73B0;&#x7684;&#x66F4;&#x52A0;&#x5B8C;&#x7F8E;&#x3002;</p>
-<h2 id="&#x5B9A;&#x4F4D;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;"><a href="#&#x5B9A;&#x4F4D;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;" class="headerlink" title="&#x5B9A;&#x4F4D;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;"></a>&#x5B9A;&#x4F4D;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</h2><p>&#x5728;CSS&#x4E2D;&#x5173;&#x4E8E;&#x5B9A;&#x4F4D;&#x7684;&#x5185;&#x5BB9;&#x662F;&#xFF1A;</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/22/2016-09-30-css-position-absolute-relative/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/22/2016-05-18-JEECMS-Views/" itemprop="url">
-                  JEECMS内容浏览次数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-22T18:04:56+08:00" content="2016-10-22">
-              2016-10-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
                 </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/22/2016-05-18-JEECMS-Views/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/22/2016-05-18-JEECMS-Views/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="&#x5185;&#x5BB9;&#x6D4F;&#x89C8;&#x6B21;&#x6570;"><a href="#&#x5185;&#x5BB9;&#x6D4F;&#x89C8;&#x6B21;&#x6570;" class="headerlink" title="&#x5185;&#x5BB9;&#x6D4F;&#x89C8;&#x6B21;&#x6570;"></a>&#x5185;&#x5BB9;&#x6D4F;&#x89C8;&#x6B21;&#x6570;</h2><p>&#x52A0;&#x5165;&#x6D4F;&#x89C8;&#x6B21;&#x6570;&#x7684;&#x9875;&#x9762;&#x5FC5;&#x987B;&#x7684;&#x5185;&#x5BB9;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">	&lt;script src=&quot;${resSys}/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script src=&quot;${resSys}/front.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">		$(function() {</div><div class="line">		Cms.viewCount(&quot;${base}&quot;,&quot;${content.id}&quot;);</div><div class="line">		Cms.siteFlow(&quot;${base}&quot;, location.href, document.referrer);</div><div class="line">		});</div><div class="line">	&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&#x6D4F;&#x89C8;&#x6B21;&#x6570;&#xFF1A;&lt;span id=&quot;views&quot;&gt;&lt;/span&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/22/2016-05-18-JEECMS-Views/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/22/2016-09-29-Echarts3-map-geoJson/" itemprop="url">
-                  Echarts使用地图时发现地图行政区划没更新
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-22T18:04:56+08:00" content="2016-10-22">
-              2016-10-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/22/2016-09-29-Echarts3-map-geoJson/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/22/2016-09-29-Echarts3-map-geoJson/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="&#x4F7F;&#x7528;&#x5730;&#x56FE;&#x65F6;&#x53D1;&#x73B0;&#x5730;&#x56FE;&#x884C;&#x653F;&#x533A;&#x5212;&#x6CA1;&#x66F4;&#x65B0;"><a href="#&#x4F7F;&#x7528;&#x5730;&#x56FE;&#x65F6;&#x53D1;&#x73B0;&#x5730;&#x56FE;&#x884C;&#x653F;&#x533A;&#x5212;&#x6CA1;&#x66F4;&#x65B0;" class="headerlink" title="&#x4F7F;&#x7528;&#x5730;&#x56FE;&#x65F6;&#x53D1;&#x73B0;&#x5730;&#x56FE;&#x884C;&#x653F;&#x533A;&#x5212;&#x6CA1;&#x66F4;&#x65B0;"></a>&#x4F7F;&#x7528;&#x5730;&#x56FE;&#x65F6;&#x53D1;&#x73B0;&#x5730;&#x56FE;&#x884C;&#x653F;&#x533A;&#x5212;&#x6CA1;&#x66F4;&#x65B0;</h3><p>&#x5728;&#x505A;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x7684;demo&#x65F6;&#xFF0C;&#x8001;&#x5927;&#x8BA9;&#x6211;&#x7528;echarts&#x5728;&#x9996;&#x9875;&#x505A;&#x4E00;&#x4E2A;&#x4E0A;&#x6D77;&#x5730;&#x56FE;&#xFF0C;&#x4E0A;&#x9762;&#x663E;&#x793A;&#x5404;&#x4E2A;&#x533A;&#x7684;&#x6570;&#x636E;&#x3002;</p>
-<p>&#x7565;&#x4E00;&#x770B;&#xFF0C;&#x633A;&#x7B80;&#x5355;&#x7684;&#x561B;&#xFF01;&#x4E0B;&#x8F7D;js&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x52A0;&#x5165;&#x94FE;&#x63A5;&#xFF0C;&#x5C06;echarts&#x7684;&#x793A;&#x4F8B;&#x590D;&#x5236;&#x4E00;&#x4E2A;&#x8FC7;&#x6765;&#x3002;&#x8BF6;&#xFF0C;json&#x65B9;&#x5F0F;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x90A3;&#x5C31;&#x8BD5;&#x8BD5;js&#x65B9;&#x5F0F;&#x5427;&#x3002;&#x53EF;&#x4EE5;&#x4E86;&#xFF01;&#xFF08;lixer&#xFF1A;&#x65E2;&#x7136;js&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x8FD8;&#x53BB;&#x7BA1;json&#x65B9;&#x5F0F;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x884C;&#x5E72;&#x4EC0;&#x4E48;&#x3002;&#xFF09;</p>
-<p>&#x597D;&#x4E86;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x66F4;&#x6539;&#x66F4;&#x6539;&#xFF0C;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x60F3;&#x8981;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x6807;&#x9898;&#x600E;&#x4E48;&#x52A0;&#x554A;&#xFF0C;&#x5730;&#x56FE;&#x4E0A;&#x67D0;&#x4E2A;&#x533A;&#x57DF;&#x600E;&#x4E48;&#x52A0;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x554A;&#xFF0C;&#xFF0C;&#xFF0C;&#x53EA;&#x80FD;&#x53BB;&#x770B;api&#x4E86;&#xFF0C;&#x5012;&#x817E;&#x4E86;2&#x4E2A;&#x5C0F;&#x65F6;&#xFF0C;&#x7EC8;&#x4E8E;&#x641E;&#x5B9A;&#x4E86;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x6210;&#x679C;&#xFF1A;</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/22/2016-09-29-Echarts3-map-geoJson/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/22/hexo-install/" itemprop="url">
-                  搭建github博客-hexo安装与使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-22T16:01:23+08:00" content="2016-10-22">
-              2016-10-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
                 <a href="/2016/10/22/hexo-install/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/22/hexo-install/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/22/hexo-install/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -834,31 +688,36 @@
 
       
         
-          <p>&#x7528;hexo&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x535A;&#x5BA2;&#xFF0C;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x3002;</p>
+          <p>用hexo搭建一个博客，记录一下。</p>
 <blockquote>
-<p>&#x8F6C;&#x81EA; <a href="http://www.ezlippi.com/blog/2016/02/jekyll-to-hexo.html?utm_source=tuicool&amp;utm_medium=referral">Jekyll&#x8FC1;&#x79FB;&#x5230;Hexo&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;</a></p>
+<p>转自 <a href="http://www.ezlippi.com/blog/2016/02/jekyll-to-hexo.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">Jekyll迁移到Hexo搭建个人博客</a></p>
 </blockquote>
-<p>&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;&#x4EE5;&#x524D;&#x7531;jekyll&#x642D;&#x5EFA;&#xFF0C;&#x4E3B;&#x8981;&#x95EE;&#x9898;&#x662F;&#x76EE;&#x5F55;&#x3001;Rss&#x3001;sitemap&#x65E0;&#x6CD5;&#x81EA;&#x52A8;&#x751F;&#x6210;&#xFF0C;&#x6839;&#x636E;DRY&#x7684;&#x539F;&#x5219;&#x5728;&#x7F51;&#x4E0A;&#x627E;&#x4E86;&#x4E0B;&#x7B54;&#x6848;&#xFF0C;&#x6700;&#x7EC8;&#x53D1;&#x73B0;&#x4E86;&#x7528;Hexo&#x6765;&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x914D;&#x7F6E;&#x5B8C;&#x4E4B;&#x540E;&#x4E00;&#x52B3;&#x6C38;&#x9038;&#xFF0C;&#x76EE;&#x5F55;&#x3001;Rss&#x548C;sitemap&#x90FD;&#x662F;&#x81EA;&#x52A8;&#x751F;&#x6210;&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x6211;&#x4E4B;&#x524D;&#x7684;&#x56F0;&#x60D1;&#x3002;</p>
-<h1 id="&#x4ECE;Jekyll&#x8FC1;&#x79FB;&#x5230;Hexo"><a href="#&#x4ECE;Jekyll&#x8FC1;&#x79FB;&#x5230;Hexo" class="headerlink" title="&#x4ECE;Jekyll&#x8FC1;&#x79FB;&#x5230;Hexo"></a>&#x4ECE;Jekyll&#x8FC1;&#x79FB;&#x5230;Hexo</h1><h2 id="&#x5B89;&#x88C5;Hexo"><a href="#&#x5B89;&#x88C5;Hexo" class="headerlink" title="&#x5B89;&#x88C5;Hexo"></a>&#x5B89;&#x88C5;Hexo</h2><p>&#x5B89;&#x88C5;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir hexo  #&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;</div><div class="line">cd hexo</div><div class="line">npm install -g hexo-cli</div><div class="line">npm install hexo --save</div></pre></td></tr></table></figure></p>
-<p>&#x90E8;&#x7F72;Hexo&#xFF1A;&#x5728;Git shell &#x4E2D;&#x8F93;&#x5165;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
+<p>个人博客以前由jekyll搭建，主要问题是目录、Rss、sitemap无法自动生成，根据DRY的原则在网上找了下答案，最终发现了用Hexo来搭建博客的方法，配置完之后一劳永逸，目录、Rss和sitemap都是自动生成，解决了我之前的困惑。</p>
+<h1 id="从Jekyll迁移到Hexo"><a href="#从Jekyll迁移到Hexo" class="headerlink" title="从Jekyll迁移到Hexo"></a>从Jekyll迁移到Hexo</h1><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir hexo  #创建一个文件夹</span><br><span class="line">cd hexo</span><br><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure></p>
+<p>部署Hexo：在Git shell 中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/22/hexo-install/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -868,6 +727,487 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/30/2016-09-30-css-position-absolute-relative/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ltlixer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ltlixer 点滴记录">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/09/30/2016-09-30-css-position-absolute-relative/" itemprop="url">关于位置position的absolute和relative属性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-30T22:37:08+08:00">
+                2016-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/30/2016-09-30-css-position-absolute-relative/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/30/2016-09-30-css-position-absolute-relative/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="关于位置position的absolute和relative属性"><a href="#关于位置position的absolute和relative属性" class="headerlink" title="关于位置position的absolute和relative属性"></a>关于位置position的absolute和relative属性</h1><p>今天在用别人写的class的时候位置有点不对劲，就查看了一下代码，发现是position的位置问题。</p>
+<p>在搜索absolute和relative的时候发现一篇博文不错，记录并分享一下：</p>
+<blockquote>
+<h1 id="详解定位与定位应用"><a href="#详解定位与定位应用" class="headerlink" title="详解定位与定位应用"></a><a href="http://blog.sina.com.cn/s/blog_4bcf4a5e010008o0.html" target="_blank" rel="noopener">详解定位与定位应用</a></h1><p><a href="http://blog.sina.com.cn/mnzj" target="_blank" rel="noopener">盟牛的博客</a></p>
+</blockquote>
+<p>定位一直是WEB标准应用中的难点，如果理不清楚定位那么可能应实现的效果实现不了，实现了的效果可能会走样。如果理清了定位的原理，那定位会让网页实现的更加完美。</p>
+<h2 id="定位的定义："><a href="#定位的定义：" class="headerlink" title="定位的定义："></a>定位的定义：</h2><p>在CSS中关于定位的内容是：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/30/2016-09-30-css-position-absolute-relative/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/27/2016-09-29-Echarts3-map-geoJson/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ltlixer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ltlixer 点滴记录">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/09/27/2016-09-29-Echarts3-map-geoJson/" itemprop="url">Echarts使用地图时发现地图行政区划没更新</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-27T00:00:00+08:00">
+                2016-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/27/2016-09-29-Echarts3-map-geoJson/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/27/2016-09-29-Echarts3-map-geoJson/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="使用地图时发现地图行政区划没更新"><a href="#使用地图时发现地图行政区划没更新" class="headerlink" title="使用地图时发现地图行政区划没更新"></a>使用地图时发现地图行政区划没更新</h3><p>在做一个项目的demo时，老大让我用echarts在首页做一个上海地图，上面显示各个区的数据。</p>
+<p>略一看，挺简单的嘛！下载js文件，在项目中加入链接，将echarts的示例复制一个过来。诶，json方式有问题，那就试试js方式吧。可以了！（lixer：既然js方式可以还去管json方式为什么不行干什么。）</p>
+<p>好了，接下来就更改更改，添加一些想要的东西。标题怎么加啊，地图上某个区域怎么加点击事件啊，，，只能去看api了，倒腾了2个小时，终于搞定了。下面是成果：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/27/2016-09-29-Echarts3-map-geoJson/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/18/2016-05-18-JEECMS-Views/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ltlixer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ltlixer 点滴记录">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/05/18/2016-05-18-JEECMS-Views/" itemprop="url">JEECMS内容浏览次数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-18T00:00:00+08:00">
+                2016-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/05/18/2016-05-18-JEECMS-Views/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/18/2016-05-18-JEECMS-Views/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="内容浏览次数"><a href="#内容浏览次数" class="headerlink" title="内容浏览次数"></a>内容浏览次数</h2><p>加入浏览次数的页面必须的内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;script src=&quot;$&#123;resSys&#125;/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;script src=&quot;$&#123;resSys&#125;/front.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">		$(function() &#123;</span><br><span class="line">		Cms.viewCount(&quot;$&#123;base&#125;&quot;,&quot;$&#123;content.id&#125;&quot;);</span><br><span class="line">		Cms.siteFlow(&quot;$&#123;base&#125;&quot;, location.href, document.referrer);</span><br><span class="line">		&#125;);</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	浏览次数：&lt;span id=&quot;views&quot;&gt;&lt;/span&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/05/18/2016-05-18-JEECMS-Views/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -896,61 +1236,94 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="ltlixer" />
-          <p class="site-author-name" itemprop="name">ltlixer</p>
-          <p class="site-description motion-element" itemprop="description">( •̀ .̫ •́ )✧</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">5</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="ltlixer" />
+            
+              <p class="site-author-name" itemprop="name">ltlixer</p>
+              <p class="site-description motion-element" itemprop="description">( •̀ .̫ •́ )✧</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ltlixer" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:ltlixer@foxmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+
         </div>
-
-        
-        
-
-        
-        
-
       </section>
+
+      
 
       
 
@@ -964,42 +1337,40 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ltlixer</span>
+
+  
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
 
         
 
-<div class="busuanzi-count">
 
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  
-    <span class="site-uv">浏览次数：<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
-  
 
-  
-    <span class="site-pv">浏览次数：<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
-  
-  
-</div>
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260651666&web_id=1260651666" language="JavaScript"></script>
+  </div>
 
 
 
@@ -1007,9 +1378,15 @@
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -1032,41 +1409,62 @@
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
 
 
 
   
   
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+  
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
 
 
 
@@ -1075,7 +1473,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1100,7 +1498,8 @@
 
   
     
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 
@@ -1109,6 +1508,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
   
   
 
@@ -1117,11 +1540,6 @@
   
 
   
-
-  
-
-
-
 
 </body>
 </html>

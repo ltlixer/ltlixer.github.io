@@ -2,7 +2,7 @@
 tags: css
 categories: 前端
 title: 关于位置position的absolute和relative属性
-date: 2016年09月30日 星期五
+date: 2016-09-30 22:37:08
 ---
 
 # 关于位置position的absolute和relative属性

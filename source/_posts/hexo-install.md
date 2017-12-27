@@ -2,7 +2,7 @@
 tags: hexo
 categories: 前端
 title: 搭建github博客-hexo安装与使用
-date: 2016年10月22日 星期六
+date: 2016-10-22
 ---
 用hexo搭建一个博客，记录一下。
 > 转自 [Jekyll迁移到Hexo搭建个人博客](http://www.ezlippi.com/blog/2016/02/jekyll-to-hexo.html?utm_source=tuicool&utm_medium=referral)

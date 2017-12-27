@@ -12,5 +12,5 @@ java web后台开发、前端开发
 
 # 联系方式
 
-邮箱：ltlixer@qq.com
+邮箱：ltlixer@foxmail.com
 github: [https://github.com/ltlixer](https://github.com/ltlixer)
