@@ -70,7 +70,7 @@ theme: next
 deploy:
   type: git
 	repository: https://github.com/ltlixer/ltlixer.github.io.git
-	branch: master
+	branch: source-code
 
 # 多说评论
 duoshuo_shortname: ltlixer
