@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://ltlixer.site</id>
+    <title>流欣儿</title>
+    <updated>2020-03-24T06:57:54.293Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://ltlixer.site"/>
+    <link rel="self" href="https://ltlixer.site/atom.xml"/>
+    <subtitle>ltlixer的点滴记录</subtitle>
+    <logo>https://ltlixer.site/images/avatar.png</logo>
+    <icon>https://ltlixer.site/favicon.ico</icon>
+    <rights>All rights reserved 2020, 流欣儿</rights>
+    <entry>
+        <title type="html"><![CDATA[ionic 打包 报错Execution failed for task ':processDebugResources'. > com.android.ide.common.process.ProcessException:Failed to execute aapt]]></title>
+        <id>https://ltlixer.site/post/2018-03-15-ionic打包报错processDebugResources/</id>
+        <link href="https://ltlixer.site/post/2018-03-15-ionic打包报错processDebugResources/">
+        </link>
+        <updated>2018-03-15T08:30:03.000Z</updated>
+        <summary type="html"><![CDATA[<p>https://www.cnblogs.com/wupeng88/p/8533836.html</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>https://www.cnblogs.com/wupeng88/p/8533836.html</p>
+<!-- more -->
+<h2 id="完整报错">完整报错</h2>
+<pre><code>BUILD FAILED
+ 
+Total time: 19.142 secs
+ERROR: In &lt;declare-styleable&gt; FontFamilyFont, unable to find attribute android:ttcIndex
+ 
+ 
+FAILURE: Build failed with an exception.
+ 
+* What went wrong:
+Execution failed for task ':processDebugResources'.
+&gt; com.android.ide.common.process.ProcessException: Failed to execute aapt
+ 
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+Error: cmd: Command failed with exit code 1 Error output:
+ERROR: In &lt;declare-styleable&gt; FontFamilyFont, unable to find attribute android:fontVariationSettings
+ERROR: In &lt;declare-styleable&gt; FontFamilyFont, unable to find attribute android:ttcIndex
+ 
+ 
+FAILURE: Build failed with an exception.
+ 
+* What went wrong:
+Execution failed for task ':processDebugResources'.
+&gt; com.android.ide.common.process.ProcessException: Failed to execute aapt
+ 
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+ 
+[ERROR] An error occurred while running cordova build android (exit code 1).
+</code></pre>
+<h2 id="解决方法">解决方法</h2>
+<pre><code>执行命令ionic cordova platform add android
+</code></pre>
+<p>在platform --&gt; android目录下找到build.gradle文件，打开并在def promptForReleaseKeyPassword() {...}前加入以下内容：</p>
+<pre><code>configurations.all {
+  resolutionStrategy {
+      force 'com.android.support:support-v4:27.1.0'
+  }
+}
+</code></pre>
+<h2 id="原因">原因</h2>
+<p>compile &quot;com.android.support:support-v4:+&quot; 带+号是指要用最新版本。</p>
+<p>force 'com.android.support:support-v4:27.1.0'  添加force强制指定annotations</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[解决 Springboot中Interceptor拦截器中依赖注入失败]]></title>
+        <id>https://ltlixer.site/post/2018-01-23-解决 Springboot中Interceptor拦截器中依赖注入失败/</id>
+        <link href="https://ltlixer.site/post/2018-01-23-解决 Springboot中Interceptor拦截器中依赖注入失败/">
+        </link>
+        <updated>2018-01-23T12:01:45.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>在Springboot拦截器Interceptor中使用@Resource依赖注入时，发现运行的时候被注解的对象居然是null，没被注入进去</p>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>在Springboot拦截器Interceptor中使用@Resource依赖注入时，发现运行的时候被注解的对象居然是null，没被注入进去</p>
+<!-- more -->
+<p>原配置为：</p>
+<pre><code>@Configuration
+public class WebAppConfig extends WebMvcConfigurerAdapter {
+  
+  @Override
+  public void addInterceptors(final InterceptorRegistry registry) {
+    registry.addInterceptor(new UserInterceptor())
+        .addPathPatterns(&quot;/**&quot;)
+        .excludePathPatterns(&quot;/login/**&quot;, &quot;/logout/**&quot;, &quot;/loginPage/**&quot;, &quot;/error/**&quot;);
+    super.addInterceptors(registry);
+  }
+}
+</code></pre>
+<h2 id="解决">解决</h2>
+<p>在Spring添加拦截器之前先自己创建一下这个Spring Bean，这样就能在Spring映射这个拦截器前，把拦截器中的依赖注入给完成了。</p>
+<p>修改配置：</p>
+<pre><code>@Configuration
+public class WebAppConfig extends WebMvcConfigurerAdapter {
+  
+  @Bean
+  public UserInterceptor userInterceptor() {
+    return new UserInterceptor();
+  }
+  
+  @Override
+  public void addInterceptors(final InterceptorRegistry registry) {
+    registry.addInterceptor(userInterceptor())
+        .addPathPatterns(&quot;/**&quot;)
+        .excludePathPatterns(&quot;/login/**&quot;, &quot;/logout/**&quot;, &quot;/loginPage/**&quot;, &quot;/error/**&quot;);
+    super.addInterceptors(registry);
+  }
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[资源收藏]]></title>
+        <id>https://ltlixer.site/post/2018-01-23-资源收藏/</id>
+        <link href="https://ltlixer.site/post/2018-01-23-资源收藏/">
+        </link>
+        <updated>2018-01-23T11:51:03.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="网站">网站</h1>
+<ul>
+<li>itellyou 资源下载</li>
+<li>http://xclient.info mac软件下载</li>
+<li>http://color-themes.com/ intellj主题下载</li>
+<li>http://web.chacuo.net/netrsakeypair 在线生成非对称加密公钥私钥对、在线生成公私钥对、RSA Key pair create、生成RSA密钥对</li>
+</ul>
+<h1 id="软件">软件</h1>
+<p>OmniGraffle 电脑mac上画图软件（流程图、UML、时序图）<br>
+Vnc Viewer 一款优秀的远程控制工具软件<br>
+Charles Mac或Windows下常用的http协议网络包截取工具（抓包工具）<br>
+Xmind 一款优秀的思维导图工具</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[spring-data-redis缓存的使用]]></title>
+        <id>https://ltlixer.site/post/2017-12-27-spring-data-redis缓存的使用/</id>
+        <link href="https://ltlixer.site/post/2017-12-27-spring-data-redis缓存的使用/">
+        </link>
+        <updated>2017-12-27T08:53:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>公司最近需要将一个老项目升级，其中涉及到缓存，从memcached到Redis。</p>
+<ul>
+<li>redis与 memcached相比，redis支持key-value数据类型，同事支持list、set、hash等数据结构的存储。</li>
+<li>redis支持数据的备份，即master-slave模式的数据备份。</li>
+<li>redis支持数据的持久化。</li>
+<li>redis在很多方面支持数据库的特性，可以这样说他就是一个数据库系统，而memcached只是简单地K/V缓存。</li>
+<li>它们在性能方面差别不是很大，读取方面尤其是针对批量读取性能方面memcached占据优势。当然redis也有他的优点，如持久性、支持更多的数据结构。</li>
+<li>所以在选择方面如果有持久方面的需求或对数据类型和处理有要求的应该选择redis。</li>
+</ul>
+<p>如果简单的key/value 存储应该选择memcached</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>公司最近需要将一个老项目升级，其中涉及到缓存，从memcached到Redis。</p>
+<ul>
+<li>redis与 memcached相比，redis支持key-value数据类型，同事支持list、set、hash等数据结构的存储。</li>
+<li>redis支持数据的备份，即master-slave模式的数据备份。</li>
+<li>redis支持数据的持久化。</li>
+<li>redis在很多方面支持数据库的特性，可以这样说他就是一个数据库系统，而memcached只是简单地K/V缓存。</li>
+<li>它们在性能方面差别不是很大，读取方面尤其是针对批量读取性能方面memcached占据优势。当然redis也有他的优点，如持久性、支持更多的数据结构。</li>
+<li>所以在选择方面如果有持久方面的需求或对数据类型和处理有要求的应该选择redis。</li>
+</ul>
+<p>如果简单的key/value 存储应该选择memcached</p>
+<!-- more -->
+<h1 id="jedis">jedis</h1>
+<p>首先通过maven引入jedis的依赖：</p>
+<pre><code>&lt;!-- 注意：2.9.0以后版本才支持集群，且该版本集群密码有问题 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;redis.clients&lt;/groupId&gt;
+    &lt;artifactId&gt;jedis&lt;/artifactId&gt;
+    &lt;version&gt;2.9.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>创建Jedis对象，调用set方法，并通过get方法获取到值并打印：</p>
+<pre><code class="language-java">Jedis jedis = new Jedis(&quot;localhost&quot;, 6379);
+jedis.set(&quot;singleJedis&quot;, &quot;hello jedis!&quot;);
+System.out.println(jedis.get(&quot;singleJedis&quot;));
+jedis.close();
+</code></pre>
+<p>需要自己实现一些jedis的工具类，使用不方便。</p>
+<h1 id="spring-data-redis">spring-data-redis</h1>
+<p>spring已经将redis集成，并提供了较为友好的redisTemplate访问redis。这里配置集群环境</p>
+<h2 id="spring集成">spring集成</h2>
+<p>pom加入：</p>
+<pre><code>&lt;!-- jedis （一个redis client端的jar）--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;redis.clients&lt;/groupId&gt;
+    &lt;artifactId&gt;jedis&lt;/artifactId&gt;
+    &lt;version&gt;2.9.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- spring-data-redis 依赖--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.data&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-data-redis&lt;/artifactId&gt;
+    &lt;version&gt;1.7.1.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>添加配置文件redis.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns=&quot;http://www.springframework.org/schema/beans&quot; xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:task=&quot;http://www.springframework.org/schema/task&quot; xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xmlns:cache=&quot;http://www.springframework.org/schema/cache&quot;
+    xsi:schemaLocation=&quot;
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.1.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+    http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd&quot;&gt;
+
+     &lt;!--  redis连接池  这里引用的是jedis 包中的功能  --&gt;
+    &lt;bean id=&quot;jedisPoolConfig&quot; class=&quot;redis.clients.jedis.JedisPoolConfig&quot;&gt;
+        &lt;property name=&quot;maxTotal&quot; value=&quot;${redis.maxActive:1024}&quot; /&gt;
+        &lt;property name=&quot;maxIdle&quot; value=&quot;${redis.maxIdle:1024}&quot; /&gt;
+        &lt;property name=&quot;maxWaitMillis&quot; value=&quot;${redis.maxWait:10000}&quot; /&gt;
+        &lt;property name=&quot;testOnBorrow&quot; value=&quot;${redis.testOnBorrow:true}&quot; /&gt;
+        &lt;property name=&quot;testOnReturn&quot; value=&quot;${redis.testOnReturn:true}&quot; /&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- Redis集群配置     这里使用的是spring-data-redis  包中内容 --&gt;
+     &lt;bean id=&quot;redisClusterConfig&quot; class=&quot;org.springframework.data.redis.connection.RedisClusterConfiguration&quot;&gt;
+        &lt;property name=&quot;maxRedirects&quot; value=&quot;6&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;clusterNodes&quot;&gt;
+            &lt;set&gt;
+                &lt;bean class=&quot;org.springframework.data.redis.connection.RedisNode&quot;&gt;
+                    &lt;constructor-arg name=&quot;host&quot; value=&quot;192.168.1.105&quot;&gt;&lt;/constructor-arg&gt;
+                    &lt;constructor-arg name=&quot;port&quot; value=&quot;7111&quot;&gt;&lt;/constructor-arg&gt;
+                &lt;/bean&gt;
+
+                &lt;bean class=&quot;org.springframework.data.redis.connection.RedisNode&quot;&gt;
+                    &lt;constructor-arg name=&quot;host&quot; value=&quot;192.168.1.105&quot;&gt;&lt;/constructor-arg&gt;
+                    &lt;constructor-arg name=&quot;port&quot; value=&quot;7112&quot;&gt;&lt;/constructor-arg&gt;
+                &lt;/bean&gt;
+                &lt;bean class=&quot;org.springframework.data.redis.connection.RedisNode&quot;&gt;
+                    &lt;constructor-arg name=&quot;host&quot; value=&quot;192.168.1.105&quot;&gt;&lt;/constructor-arg&gt;
+                    &lt;constructor-arg name=&quot;port&quot; value=&quot;7116&quot;&gt;&lt;/constructor-arg&gt;
+                &lt;/bean&gt;
+                &lt;bean class=&quot;org.springframework.data.redis.connection.RedisNode&quot;&gt;
+                    &lt;constructor-arg name=&quot;host&quot; value=&quot;192.168.1.102&quot;&gt;&lt;/constructor-arg&gt;
+                    &lt;constructor-arg name=&quot;port&quot; value=&quot;7113&quot;&gt;&lt;/constructor-arg&gt;
+                &lt;/bean&gt;
+                 &lt;bean class=&quot;org.springframework.data.redis.connection.RedisNode&quot;&gt;
+                    &lt;constructor-arg name=&quot;host&quot; value=&quot;192.168.1.102&quot;&gt;&lt;/constructor-arg&gt;
+                    &lt;constructor-arg name=&quot;port&quot; value=&quot;7114&quot;&gt;&lt;/constructor-arg&gt;
+                &lt;/bean&gt;
+                 &lt;bean class=&quot;org.springframework.data.redis.connection.RedisNode&quot;&gt;
+                    &lt;constructor-arg name=&quot;host&quot; value=&quot;192.168.1.102&quot;&gt;&lt;/constructor-arg&gt;
+                    &lt;constructor-arg name=&quot;port&quot; value=&quot;7115&quot;&gt;&lt;/constructor-arg&gt;
+                &lt;/bean&gt;
+            &lt;/set&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt; 
+    &lt;!-- Redis连接工厂     --&gt;
+    &lt;bean id=&quot;redis4CacheConnectionFactory&quot;
+        class=&quot;org.springframework.data.redis.connection.jedis.JedisConnectionFactory&quot;&gt;
+        &lt;constructor-arg name=&quot;clusterConfig&quot; ref=&quot;redisClusterConfig&quot; /&gt;
+        &lt;property name=&quot;timeout&quot; value=&quot;${redis.timeout:10000}&quot; /&gt;
+        &lt;property name=&quot;poolConfig&quot; ref=&quot;jedisPoolConfig&quot; /&gt;
+    &lt;/bean&gt;
+    &lt;!-- 存储序列化 --&gt;
+    &lt;bean name=&quot;stringRedisSerializer&quot;
+        class=&quot;org.springframework.data.redis.serializer.StringRedisSerializer&quot; /&gt;
+
+    &lt;!-- 集群Resis使用模板 --&gt;
+    &lt;bean id=&quot;clusterRedisTemplate&quot; class=&quot;org.springframework.data.redis.core.RedisTemplate&quot;&gt;
+        &lt;property name=&quot;connectionFactory&quot; ref=&quot;redis4CacheConnectionFactory&quot; /&gt;
+        &lt;property name=&quot;keySerializer&quot; ref=&quot;stringRedisSerializer&quot; /&gt;
+        &lt;property name=&quot;hashKeySerializer&quot; ref=&quot;stringRedisSerializer&quot; /&gt;
+        &lt;property name=&quot;valueSerializer&quot; ref=&quot;stringRedisSerializer&quot; /&gt;
+        &lt;property name=&quot;hashValueSerializer&quot; ref=&quot;stringRedisSerializer&quot; /&gt;
+    &lt;/bean&gt;
+
+&lt;/beans&gt;
+</code></pre>
+<h2 id="springboot集成">springboot集成</h2>
+<p>pom加入：</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>添加ReisConfig.java配置文件</p>
+<pre><code class="language-java">package com.i2f.i2work.core.common.redis;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CachingConfigurerSupport;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.interceptor.CacheErrorHandler;
+import org.springframework.cache.interceptor.KeyGenerator;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+
+import java.lang.reflect.Method;
+
+/**
+ * @author ltlixer
+ * @date 2017/12/7 上午11:02
+ */
+@Slf4j
+@Configuration
+@EnableCaching
+public class RedisConfig extends CachingConfigurerSupport {
+
+    @Bean
+    @Override
+    public KeyGenerator keyGenerator() {
+        return new KeyGenerator() {
+            @Override
+            public Object generate(Object target, Method method, Object... params) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(target.getClass().getName());
+                sb.append(method.getName());
+                for (Object obj : params) {
+                    sb.append(obj.toString());
+                }
+                return sb.toString();
+            }
+        };
+    }
+
+    @SuppressWarnings(&quot;rawtypes&quot;)
+    @Bean
+    public CacheManager cacheManager(RedisTemplate redisTemplate) {
+        RedisCacheManager rcm = new RedisCacheManager(redisTemplate);
+        //设置缓存过期时间,1个月
+        rcm.setDefaultExpiration(60 * 60 * 24 * 30);
+        return rcm;
+    }
+
+    @Bean
+    public RedisTemplate&lt;String, String&gt; redisTemplate(RedisConnectionFactory factory) {
+        StringRedisTemplate template = new StringRedisTemplate(factory);
+        //自定义redis序列化方式
+        template.setValueSerializer(new I2WorkSerializer());
+        template.afterPropertiesSet();
+        return template;
+    }
+
+    /**
+     * redis异常处理器
+     * 默认SimpleCacheErrorHandler是抛出异常，此处自定义处理方式不抛出
+     *
+     * @return
+     */
+    @Bean
+    @Override
+    public CacheErrorHandler errorHandler() {
+        return new CacheErrorHandler() {
+            @Override
+            public void handleCacheGetError(RuntimeException e, Cache cache, Object key) {
+                log.error(&quot;cache get error&quot;, e);
+            }
+
+            @Override
+            public void handleCachePutError(RuntimeException e, Cache cache, Object key, Object value) {
+                log.error(&quot;cache put error&quot;, e);
+            }
+
+            @Override
+            public void handleCacheEvictError(RuntimeException e, Cache cache, Object key) {
+                log.error(&quot;cache evict error&quot;, e);
+            }
+
+            @Override
+            public void handleCacheClearError(RuntimeException e, Cache cache) {
+                log.error(&quot;cache clear error&quot;, e);
+            }
+        };
+    }
+}
+
+</code></pre>
+<p>注意：需要使用相同的序列化方式<br>
+spring-data-redis提供了若干个Serializer，主要包括：</p>
+<ul>
+<li>JacksonJsonRedisSerializer</li>
+<li>JdkSerializationRedisSerializer</li>
+<li>OxmSerializer</li>
+</ul>
+<p>我自己使用alibaba的fastjson实现了一个自定义的序列化方式</p>
+<pre><code class="language-java">package com.i2f.i2work.core.common.redis;
+
+import com.alibaba.fastjson.JSON;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.SerializationException;
+import org.springframework.util.Assert;
+
+import java.nio.charset.Charset;
+
+/**
+ * 自定义序列化
+ * 使用fastJson
+ *
+ * @author ltlixer
+ * @date 2017/12/28 下午2:30
+ */
+public class I2WorkSerializer implements RedisSerializer&lt;Object&gt; {
+
+    static final byte[] EMPTY_ARRAY = new byte[0];
+    private final Charset charset;
+
+    public I2WorkSerializer() {
+        this(Charset.forName(&quot;UTF8&quot;));
+    }
+
+    public I2WorkSerializer(Charset charset) {
+        Assert.notNull(charset);
+        this.charset = charset;
+    }
+
+    @Override
+    public byte[] serialize(Object object) throws SerializationException {
+        //序列化方法
+        try {
+            String jsonString = JSON.toJSONString(object);
+            return (jsonString == null ? EMPTY_ARRAY : jsonString.getBytes(charset));
+        } catch (Exception e) {
+            throw new SerializationException(&quot;Could not write JSON: &quot; + e.getMessage(), e);
+        }
+
+    }
+
+    @Override
+    public Object deserialize(byte[] bytes) throws SerializationException {
+        //反序列化
+        if (bytes == null) {
+            return null;
+        }
+        try {
+            //byte数组转换为String
+            String objectStr = new String(bytes, charset);
+            //String转化为JSONObject
+            return JSON.parse(objectStr);
+        } catch (Exception e) {
+            throw new SerializationException(&quot;Could not read JSON: &quot; + e.getMessage(), e);
+        }
+    }
+
+}
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JEECMS新闻图片-[#break]标签]]></title>
+        <id>https://ltlixer.site/post/2016-10-22-JEECMS-titleImg/</id>
+        <link href="https://ltlixer.site/post/2016-10-22-JEECMS-titleImg/">
+        </link>
+        <updated>2016-10-21T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>在做jeecms新闻网站开发的时候，遇到这么一个需求：首页需要在新闻旁边显示图片，新闻不添加标题图的时候显示默认图片，其中有新闻添加标题图时显示最近添加的一条新闻的标题图，如下图：<br>
+<img src="https://ltlixer.site/post-images/1585031659540.png" alt="" loading="lazy"></p>
+<p>思路：用标签将所有的新闻标题图获取到js数组中，再用js进行控制显示最近的一张图片</p>
+<p>用这种方法，当新闻数量很多的时候，就会有性能上的损失，页面加载会很卡。</p>
+<p>由于jeecms是用java开发的，我便尝试用了break标签（文档上没有的），竟然可以用，这就可以用tags获取到有标题图的最近一条新闻了。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在做jeecms新闻网站开发的时候，遇到这么一个需求：首页需要在新闻旁边显示图片，新闻不添加标题图的时候显示默认图片，其中有新闻添加标题图时显示最近添加的一条新闻的标题图，如下图：<br>
+<img src="https://ltlixer.site/post-images/1585031659540.png" alt="" loading="lazy"></p>
+<p>思路：用标签将所有的新闻标题图获取到js数组中，再用js进行控制显示最近的一张图片</p>
+<p>用这种方法，当新闻数量很多的时候，就会有性能上的损失，页面加载会很卡。</p>
+<p>由于jeecms是用java开发的，我便尝试用了break标签（文档上没有的），竟然可以用，这就可以用tags获取到有标题图的最近一条新闻了。</p>
+<!-- more -->
+<pre><code class="language-html">&lt;script&gt;
+var kydttupian = &quot;/${res}/images/14232842khlu.jpg&quot;; //默认图片url
+
+[@cms_content_list channelId=&quot;278701&quot; orderBy='4' titLen='15' append='...' channelOption='1' dateFormat='yyyy-MM-dd'  ]
+[#list tag_list as a]
+	[#if a.titleImg?exists]
+		kydttupian=&quot;${a.titleImg!site.defImg}&quot;;
+		[#break]//遍历channel中所有的新闻，当新闻有标题图时，退出遍历
+	[/#if]
+[/#list]
+[/@cms_content_list]
+
+var ddd=document.getElementById(&quot;kydttp&quot;);
+ddd.src=kydttupian;
+&lt;/script&gt;
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于位置position的absolute和relative属性]]></title>
+        <id>https://ltlixer.site/post/2016-09-30-css-position-absolute-relative/</id>
+        <link href="https://ltlixer.site/post/2016-09-30-css-position-absolute-relative/">
+        </link>
+        <updated>2016-09-30T14:37:08.000Z</updated>
+        <summary type="html"><![CDATA[<p>今天在用别人写的class的时候位置有点不对劲，就查看了一下代码，发现是position的位置问题。</p>
+<p>在搜索absolute和relative的时候发现一篇博文不错，记录并分享一下：</p>
+<blockquote>
+<h1 id="详解定位与定位应用"><a href="http://blog.sina.com.cn/s/blog_4bcf4a5e010008o0.html">详解定位与定位应用</a></h1>
+<p><a href="http://blog.sina.com.cn/mnzj">盟牛的博客</a></p>
+</blockquote>
+<p>定位一直是WEB标准应用中的难点，如果理不清楚定位那么可能应实现的效果实现不了，实现了的效果可能会走样。如果理清了定位的原理，那定位会让网页实现的更加完美。</p>
+<h2 id="定位的定义">定位的定义：</h2>
+<p>在CSS中关于定位的内容是：</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>今天在用别人写的class的时候位置有点不对劲，就查看了一下代码，发现是position的位置问题。</p>
+<p>在搜索absolute和relative的时候发现一篇博文不错，记录并分享一下：</p>
+<blockquote>
+<h1 id="详解定位与定位应用"><a href="http://blog.sina.com.cn/s/blog_4bcf4a5e010008o0.html">详解定位与定位应用</a></h1>
+<p><a href="http://blog.sina.com.cn/mnzj">盟牛的博客</a></p>
+</blockquote>
+<p>定位一直是WEB标准应用中的难点，如果理不清楚定位那么可能应实现的效果实现不了，实现了的效果可能会走样。如果理清了定位的原理，那定位会让网页实现的更加完美。</p>
+<h2 id="定位的定义">定位的定义：</h2>
+<p>在CSS中关于定位的内容是：</p>
+<!-- more -->
+<ul>
+<li>position:relative | absolute | static | fixed</li>
+<li>static(静态) 没有特别的设定，遵循基本的定位规定，不能通过z-index进行层次分级。</li>
+<li>relative(相对定位) 对象不可层叠、不脱离文档流，参考自身静态位置通过 top,bottom,left,right 定位，并且可以通过z-index进行层次分级。</li>
+<li>absolute(绝对定位) 脱离文档流，通过 top,bottom,left,right 定位。选取其最近一个最有定位设置的父级对象进行绝对定位，如果对象的父级没有设置定位属性，absolute元素将以body坐标原点进行定位，可以通过z-index进行层次分级。</li>
+<li>fixed（固定定位） 这里所固定的参照对像是可视窗口而并非是body或是父级元素。可通过z-index进行层次分级。</li>
+</ul>
+<p><em>注：CSS中定位的层叠分级：z-index: auto | namber;</em></p>
+<p><em>auto 遵从其父对象的定位</em></p>
+<p><em>namber  无单位的整数值。可为负数</em></p>
+<h2 id="定位的原理">定位的原理：</h2>
+<ol>
+<li>可以位移的元素 （相对定位）</li>
+</ol>
+<p>在本文流中，任何一个元素都被文本流所限制了自身的位置，但是通过CSS我们依然使得这些元素可以改变自己的位置，我们可以通过float来让元素浮动，也可以通过margin来让元素产生位置移动。但事实上那并非是真实的位移，因为，那只是通过加大margin值来实现的障眼法。而真正意义上的位移是通过top,right,bottom,left（下称TRBL，TRBL可以折分使用。）针对一个相对定位的元素所产生的。我们看下面的图：</p>
+<figure data-type="image" tabindex="1"><img src="https://ltlixer.site/post-images/1585031724506.png" alt="详解定位与定位应用" loading="lazy"></figure>
+<p>我们看图中是一个相对定位的元素</p>
+<pre><code>#first {
+width:200px;
+height: 50px;
+margin:25px;
+border:25px solid #333;
+padding:25px;
+position:relative;
+top: 50px;
+left: 50px;
+}
+而下方是一块默认定位的黑色区块
+#second {
+width:400px;
+height:75px;
+margin:0;
+border:0;
+padding:0;
+backgroud-color:#333;
+}
+</code></pre>
+<p>我们看到这个处在文本流的区块被上面的相对定位挡住了一部分，这说明：“当元素被设置相对定位或是绝对定位后，将自动产生层叠，他们的层叠级别自然的高于文本流”。除非设置其z-index值为负值。并且我们发现当相对定位元素进行位移后，表现内容已经脱离了文本流，只是在本文流中还为原来的相对对定位留下了原有的总宽与总高（内容的高度或是宽度加上 margin\border\padding的数值）。这说明在相对定位中，虽然表现区脱离了原来的文本流，但是在文本流中还还有此相对定位的老窩。这点要特别注意，因为在实际应用中如果相对定位的位移数值过大，那么原有的区域就会形成一块空白。</p>
+<p>并且我们注意，定位元素的坐标点是在margin值的左上边缘点，即图中的B点。那么所有的位移的计算将以这个点为基础进行元素的推动。</p>
+<ol>
+<li>可以在任意一个位置的元素（绝对定位）</li>
+</ol>
+<p>如上所述：相对定位只可以在文本流中进行位置的上下左右的移动，同样存在一定的局限性，虽然他的表现区脱离了文本流，但是在文本流却依然为其保留了一席之地，这就好比一个打工的人他到了外地，但是在老家依然有一个专属于他的位置，这个位置不随他的移动而改变。但是这样很明显就会空出一块空白来，如果希望文本流抛弃这个部分就需要用到绝对定位。绝对定位不光脱离了文本流，而且在文本流中也不会给这个绝对定位元素留下专属空位。这就好比是一个工厂里的职位，如果有一个工人走了自然会要有别的工人来填充这个位置。而移动出去的部分自然也就成为了自由体。绝对定位将可以通过TRBL来设置元素，使之处在任何一个位置。在父层position属性为默认值时，TRBL的坐标原点以body的坐标原点为起始。看下图：</p>
+<figure data-type="image" tabindex="2"><img src="https://ltlixer.site/post-images/1585031759956.png" alt="详解定位与定位应用" loading="lazy"></figure>
+<p>上图可知，文本流中的内容会顶替绝对定位无素的位置，一点都不会客气。而绝对定位元素自然的层叠于文本流之上。而在单一的绝对定位中，定位元素将会跑到网页的左上角，因为那里是他们的被绝对定位后的坐标原点。</p>
+<ol>
+<li>被关联的绝对定位</li>
+</ol>
+<p>上面说的是单一的绝对定位，而在实际的应用中我们常常会需要用到一种特别的形式。即希望定位元素要有绝对定位的特性，但是又希望绝对定位的坐标原点可以固定在网页中的某一个点，当这个点被移动时绝对位定元素能保证相对于这个原坐标的相对位置。也就是说需要这个绝对定位要跟着网页移动，而并且是因定在网页的某一个固定位置。通常当网页是居中形式的时候这种效果就会显得特别的重要。要实现这种效果基本方式就是为这个绝对定位的父级设置为相对定位或是绝对定位。那么绝对定位的坐标就会以父级为坐标起始点。</p>
+<p>虽然是如此，但是这个坐标原点却并不是父级的坐标原点，这是一个很奇怪的坐标位置。我们看一下模型图示：</p>
+<figure data-type="image" tabindex="3"><img src="https://ltlixer.site/post-images/1585031774027.png" alt="详解定位与定位应用" loading="lazy"></figure>
+<p>我们看到，这个图中父级为黑灰色区块，子级为青色区块。父级是相对定位，子级是绝对定位。子级设置了顶部位移50个像素，左倾位移50个像素。那么我们看，子级的坐标原点并不是从父级的坐标原点位移50个像素，而是从父级块的padding左上边缘点为坐标起始点（即A 点）。而父级这里如果要产生位置移动，或是浏览器窗口大小有所变动都不会影响到这个绝对定位元素与父级的相对定位元素之间的位置关系。这个子级也不用调整数值。<br>
+这是一种很特别并且也是非常实用的应用方式。如果你之前对于定位的控制并不自如的话，相信看完对这里对定位的解释一定可以把定位使用得随心所欲。</p>
+<ol>
+<li>总在视线里的元素 （固定定位）</li>
+</ol>
+<p>position:fixed; 他的含义就是：固定定位。这个固定与绝对定位很像，唯一不同的是绝对定位是被固定在网页中的某一个位置，而固定定位则是固定在浏览器的视框位置。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Echarts使用地图时发现地图行政区划没更新]]></title>
+        <id>https://ltlixer.site/post/2016-09-29-Echarts3-map-geoJson/</id>
+        <link href="https://ltlixer.site/post/2016-09-29-Echarts3-map-geoJson/">
+        </link>
+        <updated>2016-09-26T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>在做一个项目的demo时，老大让我用echarts在首页做一个上海地图，上面显示各个区的数据。</p>
+<p>略一看，挺简单的嘛！下载js文件，在项目中加入链接，将echarts的示例复制一个过来。诶，json方式有问题，那就试试js方式吧。可以了！（lixer：既然js方式可以还去管json方式为什么不行干什么。）</p>
+<p>好了，接下来就更改更改，添加一些想要的东西。标题怎么加啊，地图上某个区域怎么加点击事件啊，，，只能去看api了，倒腾了2个小时，终于搞定了。下面是成果：</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在做一个项目的demo时，老大让我用echarts在首页做一个上海地图，上面显示各个区的数据。</p>
+<p>略一看，挺简单的嘛！下载js文件，在项目中加入链接，将echarts的示例复制一个过来。诶，json方式有问题，那就试试js方式吧。可以了！（lixer：既然js方式可以还去管json方式为什么不行干什么。）</p>
+<p>好了，接下来就更改更改，添加一些想要的东西。标题怎么加啊，地图上某个区域怎么加点击事件啊，，，只能去看api了，倒腾了2个小时，终于搞定了。下面是成果：</p>
+<!-- more -->
+<pre><code class="language-html">&lt;script src=&quot;../js/echarts/echarts.min.js&quot;&gt;&lt;/script&gt; //这里需要下载完全版的，或者定制时将map选上
+&lt;script src=&quot;../js/echarts/shanghai.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;map_main&quot; style=&quot;margin-left:40%;height:550px;&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+var myChart = echarts.init(document.getElementById('map_main'));
+option = {
+    title: {
+        text: '上海未成年人分布情况',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item'
+    },
+    visualMap: {
+        min: 0,
+        max: 2500,
+        left: 'right',
+        top: 'bottom',
+        text: ['人数最多','人数最少'],
+        calculable: true
+    },
+    series: [
+        {
+            name: '未成年人数',
+            type: 'map',
+            mapType: 'shanghai',
+            roam: true,				//地图缩放
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            data:[
+				{name: '崇明县',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '宝山区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '嘉定区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '青浦区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '杨浦区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '虹口区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '普陀区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '静安区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '黄浦区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '卢湾区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '长宁区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '徐汇区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '浦东新区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '松江区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '闵行区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '金山区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '奉贤区',code:'1',value: Math.round(Math.random()*1000)},
+				{name: '南汇区',code:'1',value: Math.round(Math.random()*1000)}
+			]
+        }
+    ]
+};
+myChart.setOption(option);
+myChart.on('click', function (params) {
+    $(&quot;.check&quot;,window.parent.document).fadeIn(500);
+    $(&quot;.check .pop-box&quot;,window.parent.document).animate({top:20,opacity:&quot;1&quot;},500);
+    $(&quot;.check .pop-box iframe&quot;,window.parent.document).remove();
+    $(&quot;.check .pop-box&quot;,window.parent.document).append(&quot;&lt;iframe src='person/personinfo/list1.html?quxian=&quot;+params.name+&quot;' id='check-iframe' name='check-frame' frameborder='0' width='100%' height='570'&gt;&lt;/iframe&gt;&quot;);
+});
+&lt;/script&gt;
+</code></pre>
+<p>这就完了。不对啊，突然发现地图上静安区和闸北区，可是现在这两个区合并了啊，怎么办？</p>
+<p>1、去官网找找有没有最近更新的上海地图。找了半天，没有啊。只好又去github上从源代码中找找，可是还是不是最新的，应该是没更新了，我如是想到。</p>
+<p>2、我试试自己改改json文件，好吧，上网查找canvas，echarts地图实现，找到关键词geoJson，去查geoJson。弄了半天发现echarts的json中路径是压缩了的根本没法改啊。</p>
+<p>3、怎么办？去找地图文件，然后转成geoJson数据。只好去找了，找了半天，浏览起echarts的github的issue来了，无聊，心累，突然看见<a href="https://github.com/ecomfe/echarts/issues/2349">一个issue</a>下看到ECharts 地图数据在线生成工具，很兴奋啊。终于搞定了。</p>
+<p>解决问题了后，我心里琢磨着这个官方工具怎么没记载呢，回去有将echarts3文档浏览了一次，没找到，我就比较纳闷儿了，怎么会没有呢。最后，我在一个大版本之前的echarts2中发现了，让我一顿好找。</p>
+<p>最后吐槽一下echarts，文档超难读，并且还不全。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JEECMS内容浏览次数]]></title>
+        <id>https://ltlixer.site/post/2016-05-18-JEECMS-Views/</id>
+        <link href="https://ltlixer.site/post/2016-05-18-JEECMS-Views/">
+        </link>
+        <updated>2016-05-17T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="内容浏览次数">内容浏览次数</h2>
+<p>加入浏览次数的页面必须的内容：</p>
+<pre><code class="language-html">&lt;head&gt;
+	&lt;script src=&quot;${resSys}/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;${resSys}/front.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		$(function() {
+		Cms.viewCount(&quot;${base}&quot;,&quot;${content.id}&quot;);
+		Cms.siteFlow(&quot;${base}&quot;, location.href, document.referrer);
+		});
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	浏览次数：&lt;span id=&quot;views&quot;&gt;&lt;/span&gt;
+&lt;/body&gt;
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="内容浏览次数">内容浏览次数</h2>
+<p>加入浏览次数的页面必须的内容：</p>
+<pre><code class="language-html">&lt;head&gt;
+	&lt;script src=&quot;${resSys}/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;${resSys}/front.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		$(function() {
+		Cms.viewCount(&quot;${base}&quot;,&quot;${content.id}&quot;);
+		Cms.siteFlow(&quot;${base}&quot;, location.href, document.referrer);
+		});
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	浏览次数：&lt;span id=&quot;views&quot;&gt;&lt;/span&gt;
+&lt;/body&gt;
+</code></pre>
+<!-- more -->
+<h2 id="frontjs源码">front.js源码</h2>
+<pre><code class="language-javascript">Cms = {};
+/**
+ * 浏览次数
+ */
+Cms.viewCount = function(base, contentId, viewId, commentId, downloadId, upId,
+		downId) {
+	viewId = viewId || &quot;views&quot;;
+	commentId = commentId || &quot;comments&quot;;
+	downloadId = downloadId || &quot;downloads&quot;;
+	upId = upId || &quot;ups&quot;;
+	downId = downId || &quot;downs&quot;;
+	$.getJSON(base + &quot;/content_view.jspx&quot;, {
+		contentId : contentId
+	}, function(data) {
+		if (data.length &gt; 0) {
+			$(&quot;#&quot; + viewId).text(data[0]);
+			$(&quot;#&quot; + commentId).text(data[1]);
+			$(&quot;#&quot; + downloadId).text(data[2]);
+			$(&quot;#&quot; + upId).text(data[3]);
+			$(&quot;#&quot; + downId).text(data[4]);
+		}
+	});
+}
+/**
+ * 站点流量统计
+ */
+Cms.siteFlow = function(base, page, referer,flag,pvId, visitorId) {
+	pvId = pvId || &quot;pv&quot;;
+	visitorId = visitorId || &quot;visitor&quot;;
+	flag = flag || 1;
+	$.getJSON(base + &quot;/flow_statistic.jspx&quot;, {
+		page : page,
+		referer : referer
+	}, function(data) {
+		if(flag==1){
+			if (data.length &gt; 0) {
+				$(&quot;#&quot; + pvId).text(data[0]);
+				$(&quot;#&quot; + visitorId).text(data[1]);
+			}
+		}
+	});
+}
+/**
+ * 成功返回true，失败返回false。
+ */
+Cms.up = function(base, contentId, origValue, upId) {
+	upId = upId || &quot;ups&quot;;
+	var updown = $.cookie(&quot;_cms_updown_&quot; + contentId);
+	if (updown) {
+		return false;
+	}
+	$.cookie(&quot;_cms_updown_&quot; + contentId, &quot;1&quot;);
+	$.get(base + &quot;/content_up.jspx&quot;, {
+		&quot;contentId&quot; : contentId
+	}, function(data) {
+		$(&quot;#&quot; + upId).text(origValue + 1);
+	});
+	return true;
+}
+/**
+ * 成功返回true，失败返回false。
+ */
+Cms.down = function(base, contentId, origValue, downId) {
+	downId = downId || &quot;downs&quot;;
+	var updown = $.cookie(&quot;_cms_updown_&quot; + contentId);
+	if (updown) {
+		return false;
+	}
+	$.cookie(&quot;_cms_updown_&quot; + contentId, &quot;1&quot;);
+	$.get(base + &quot;/content_down.jspx&quot;, {
+		contentId : contentId
+	}, function(data) {
+		$(&quot;#&quot; + downId).text(origValue + 1);
+	});
+	return true;
+}
+/**
+ * 获取评分选项投票数
+ */
+Cms.scoreCount = function(base, contentId,itemPrefix) {
+	itemPrefix=itemPrefix||&quot;score-item-&quot;;
+	$.getJSON(base + &quot;/content_score_items.jspx&quot;, {
+		contentId : contentId
+	}, function(data) {
+			$(&quot;span[id^='&quot;+itemPrefix+&quot;']&quot;).each(function(){
+				var itemId=$(this).prop(&quot;id&quot;).split(itemPrefix)[1];
+				$(this).text(data.result[itemId]);
+			});
+	});
+}
+/**
+ * 成功返回true，失败返回false。
+ */
+Cms.score = function(base, contentId,itemId,itemPrefix) {
+	itemPrefix=itemPrefix||&quot;score-item-&quot;;
+	var score = $.cookie(&quot;_cms_score_&quot; + contentId);
+	if (score) {
+		return false;
+	}
+	$.cookie(&quot;_cms_score_&quot; + contentId, &quot;1&quot;);
+	$.get(base + &quot;/content_score.jspx&quot;, {
+		&quot;contentId&quot; : contentId,
+		&quot;itemId&quot;:itemId
+	}, function(data) {
+		if(data.succ){
+			$(&quot;#&quot;+itemPrefix + itemId).text(data.count);
+		}
+	});
+	return true;
+}
+/**
+ * 获取附件地址
+ */
+Cms.attachment = function(base, contentId, n, prefix) {
+	$.get(base + &quot;/attachment_url.jspx&quot;, {
+		&quot;cid&quot; : contentId,
+		&quot;n&quot; : n
+	}, function(data) {
+		var url;
+		for (var i = 0;i &lt; n; i++) {
+			url = base + &quot;/attachment.jspx?cid=&quot; + contentId + &quot;&amp;i=&quot; + i
+					+ data[i];
+			$(&quot;#&quot; + prefix + i).attr(&quot;href&quot;, url);
+		}
+	}, &quot;json&quot;);
+}
+/**
+ * 提交评论
+ */
+Cms.comment = function(callback, form) {
+	form = form || &quot;commentForm&quot;;
+	$(&quot;#&quot; + form).validate( {
+		submitHandler : function(form) {
+			$(form).ajaxSubmit( {
+				&quot;success&quot; : callback,
+				&quot;dataType&quot; : &quot;json&quot;
+			});
+		}
+	});
+}
+/**
+ * 获取评论列表
+ * 
+ * @param siteId
+ * @param contentId
+ * @param greatTo
+ * @param recommend
+ * @param orderBy
+ * @param count
+ */
+Cms.commentList = function(base, c, options) {
+	c = c || &quot;commentListDiv&quot;;
+	$(&quot;#&quot; + c).load(base + &quot;/comment_list.jspx&quot;, options);
+}
+/**
+ * 客户端包含登录
+ */
+Cms.loginCsi = function(base, c, options) {
+	c = c || &quot;loginCsiDiv&quot;;
+	$(&quot;#&quot; + c).load(base + &quot;/login_csi.jspx&quot;, options);
+}
+/**
+ * 向上滚动js类
+ */
+Cms.UpRoller = function(rid, speed, isSleep, sleepTime, rollRows, rollSpan,
+		unitHight) {
+	this.speed = speed;
+	this.rid = rid;
+	this.isSleep = isSleep;
+	this.sleepTime = sleepTime;
+	this.rollRows = rollRows;
+	this.rollSpan = rollSpan;
+	this.unitHight = unitHight;
+	this.proll = $('#roll-' + rid);
+	this.prollOrig = $('#roll-orig-' + rid);
+	this.prollCopy = $('#roll-copy-' + rid);
+	// this.prollLine = $('#p-roll-line-'+rid);
+	this.sleepCount = 0;
+	this.prollCopy[0].innerHTML = this.prollOrig[0].innerHTML;
+	var o = this;
+	this.pevent = setInterval(function() {
+		o.roll.call(o)
+	}, this.speed);
+}
+Cms.UpRoller.prototype.roll = function() {
+	if (this.proll[0].scrollTop &gt; this.prollCopy[0].offsetHeight) {
+		this.proll[0].scrollTop = this.rollSpan + 1;
+	} else {
+		if (this.proll[0].scrollTop % (this.unitHight * this.rollRows) == 0
+				&amp;&amp; this.sleepCount &lt;= this.sleepTime &amp;&amp; this.isSleep) {
+			this.sleepCount++;
+			if (this.sleepCount &gt;= this.sleepTime) {
+				this.sleepCount = 0;
+				this.proll[0].scrollTop += this.rollSpan;
+			}
+		} else {
+			var modCount = (this.proll[0].scrollTop + this.rollSpan)
+					% (this.unitHight * this.rollRows);
+			if (modCount &lt; this.rollSpan) {
+				this.proll[0].scrollTop += this.rollSpan - modCount;
+			} else {
+				this.proll[0].scrollTop += this.rollSpan;
+			}
+		}
+	}
+}
+Cms.LeftRoller = function(rid, speed, rollSpan) {
+	this.rid = rid;
+	this.speed = speed;
+	this.rollSpan = rollSpan;
+	this.proll = $('#roll-' + rid);
+	this.prollOrig = $('#roll-orig-' + rid);
+	this.prollCopy = $('#roll-copy-' + rid);
+	this.prollCopy[0].innerHTML = this.prollOrig[0].innerHTML;
+	var o = this;
+	this.pevent = setInterval(function() {
+		o.roll.call(o)
+	}, this.speed);
+}
+Cms.LeftRoller.prototype.roll = function() {
+	if (this.proll[0].scrollLeft &gt; this.prollCopy[0].offsetWidth) {
+		this.proll[0].scrollLeft = this.rollSpan + 1;
+	} else {
+		this.proll[0].scrollLeft += this.rollSpan;
+	}
+}
+/**
+ * 收藏信息
+ */
+Cms.collect = function(base, cId, operate,showSpanId,hideSpanId) {
+	$.post(base + &quot;/member/collect.jspx&quot;, {
+		&quot;cId&quot; : cId,
+		&quot;operate&quot; : operate
+	}, function(data) {
+		if(data.result){
+			if(operate==1){
+				alert(&quot;收藏成功！&quot;);
+				$(&quot;#&quot;+showSpanId).show();
+				$(&quot;#&quot;+hideSpanId).hide();
+			}else{
+				alert(&quot;取消收藏成功！&quot;);
+				$(&quot;#&quot;+showSpanId).hide();
+				$(&quot;#&quot;+hideSpanId).show();
+			}
+		}else{
+			alert(&quot;请先登录&quot;);
+		}
+	}, &quot;json&quot;);
+}
+/**
+ * 列表取消收藏信息
+ */
+Cms.cmsCollect = function(base, cId, operate) {
+	$.post(base + &quot;/member/collect.jspx&quot;, {
+		&quot;cId&quot; : cId,
+		&quot;operate&quot; : operate
+	}, function(data) {
+		if(data.result){
+			if(operate==1){
+				alert(&quot;收藏成功！&quot;);
+			}else{
+				alert(&quot;取消收藏成功！&quot;);
+				$(&quot;#tr_&quot;+cId).remove();
+			}
+		}else{
+			alert(&quot;请先登录&quot;);
+		}
+	}, &quot;json&quot;);
+}
+/**
+ * 检测是否已经收藏信息
+ */
+Cms.collectexist = function(base, cId,showSpanId,hideSpanId) {
+	$.post(base + &quot;/member/collect_exist.jspx&quot;, {
+		&quot;cId&quot; : cId
+	}, function(data) {
+		if(data.result){
+			$(&quot;#&quot;+showSpanId).show();
+			$(&quot;#&quot;+hideSpanId).hide();
+		}else{
+			$(&quot;#&quot;+showSpanId).hide();
+			$(&quot;#&quot;+hideSpanId).show();
+		}
+	}, &quot;json&quot;);
+}
+
+/**
+ * 申请职位信息
+ */
+Cms.jobApply = function(base, cId) {
+	$.post(base + &quot;/member/jobapply.jspx&quot;, {
+		&quot;cId&quot; : cId
+	}, function(data) {
+		if(data.result==-1){
+			alert(&quot;请先登录&quot;);
+		}else if(data.result==-2){
+			alert(&quot;职位id不能为空&quot;);
+		}else if(data.result==-3){
+			alert(&quot;未找到该职位&quot;);
+		}else if(data.result==-4){
+			alert(&quot;您还没有创建简历，请先完善简历&quot;);
+		}else if(data.result==0){
+			alert(&quot;您今天已经申请了该职位!&quot;);
+		}else if(data.result==1){
+			alert(&quot;成功申请了该职位!&quot;);
+		}
+	}, &quot;json&quot;);
+}
+</code></pre>
+]]></content>
+    </entry>
+</feed>

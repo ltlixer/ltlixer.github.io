@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8"/>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="流欣儿的个人博客">
+<meta name="description" content="ltlixer的点滴记录">
+<meta name="theme-color" content="#000">
+<title>流欣儿</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1585033070538">
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/media/css/gemini.css">
+
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/github.css" rel="stylesheet">  
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+  </head>
+  <body>
+    <div class="head-top-line"></div>
+    <div class="header-box">
+      
+<div class=" gemini">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>流欣儿</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">宝宝宝宝啊宝</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            <li class="nav-item nav-item-active">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+              
+                <a href="/archives" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+              
+                <a href="/tags" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+              
+                <a href="https://ltlixer.site/post/index" target="_self">
+                  <i class="fa fa-globe"></i> 关于
+                </a>
+              
+            </li>
+          
+          <li class="nav-item">
+            <a>
+              <i class="fa fa-search"></i> 搜索
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+    </div>
+    <div class="main-continer">
+      
+      <div class="section-layout gemini ">
+        <div class="section-layout-wrapper">
+          <div id="sidebarMeta" class="sidebar">
+    
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="https://ltlixer.site/images/avatar.png"/>
+    <p class="site-author-name">流欣儿</p>
+    <p class="site-description right-motion">ltlixer的点滴记录</p>
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">8</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
+      </div>
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="https://github.com/ltlixer">
+              <i class="fa fa-github-alt"></i> github
+            </a>
+          
+        
+        
+      </div>
+    </div>
+  
+
+
+</div>
+</div>
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'gemini';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+          <div class="section-box gemini">
+            <section class="section  posts-expand slide-down-in">
+              
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://ltlixer.site/post/2018-03-15-ionic打包报错processDebugResources/">
+      ionic 打包 报错Execution failed for task &#39;:processDebugResources&#39;. &gt; com.android.ide.common.process.ProcessException:Failed to execute aapt
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2018-03-15</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://ltlixer.site/tag/g883qbVPT/">
+              <span>前端</span>
+            </a>、
+          
+        
+          
+            <a href="https://ltlixer.site/tag/WHNDTMNcK/">
+              <span>ionic</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>2分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>258<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <p>https://www.cnblogs.com/wupeng88/p/8533836.html</p>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://ltlixer.site/post/2018-03-15-ionic打包报错processDebugResources/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://ltlixer.site/post/2018-01-23-解决 Springboot中Interceptor拦截器中依赖注入失败/">
+      解决 Springboot中Interceptor拦截器中依赖注入失败
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2018-01-23</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://ltlixer.site/tag/7igzxWg_C/">
+              <span>springboot</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>1分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>176<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <h2 id="问题描述">问题描述</h2>
+<p>在Springboot拦截器Interceptor中使用@Resource依赖注入时，发现运行的时候被注解的对象居然是null，没被注入进去</p>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://ltlixer.site/post/2018-01-23-解决 Springboot中Interceptor拦截器中依赖注入失败/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://ltlixer.site/post/2018-01-23-资源收藏/">
+      资源收藏
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2018-01-23</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://ltlixer.site/tag/kY8CkkmbG/">
+              <span>笔记</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>1分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>126<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://ltlixer.site/post/2018-01-23-资源收藏/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://ltlixer.site/post/2017-12-27-spring-data-redis缓存的使用/">
+      spring-data-redis缓存的使用
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2017-12-27</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://ltlixer.site/tag/C06awB0-F/">
+              <span>Spring</span>
+            </a>、
+          
+        
+          
+            <a href="https://ltlixer.site/tag/xgv4-8fEVR/">
+              <span>redis</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>11分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1942<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <p>公司最近需要将一个老项目升级，其中涉及到缓存，从memcached到Redis。</p>
+<ul>
+<li>redis与 memcached相比，redis支持key-value数据类型，同事支持list、set、hash等数据结构的存储。</li>
+<li>redis支持数据的备份，即master-slave模式的数据备份。</li>
+<li>redis支持数据的持久化。</li>
+<li>redis在很多方面支持数据库的特性，可以这样说他就是一个数据库系统，而memcached只是简单地K/V缓存。</li>
+<li>它们在性能方面差别不是很大，读取方面尤其是针对批量读取性能方面memcached占据优势。当然redis也有他的优点，如持久性、支持更多的数据结构。</li>
+<li>所以在选择方面如果有持久方面的需求或对数据类型和处理有要求的应该选择redis。</li>
+</ul>
+<p>如果简单的key/value 存储应该选择memcached</p>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://ltlixer.site/post/2017-12-27-spring-data-redis缓存的使用/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://ltlixer.site/post/2016-10-22-JEECMS-titleImg/">
+      JEECMS新闻图片-[#break]标签
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2016-10-22</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://ltlixer.site/tag/g883qbVPT/">
+              <span>前端</span>
+            </a>、
+          
+        
+          
+            <a href="https://ltlixer.site/tag/-YvrIldVra/">
+              <span>JEECMS</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>2分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>281<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <p>在做jeecms新闻网站开发的时候，遇到这么一个需求：首页需要在新闻旁边显示图片，新闻不添加标题图的时候显示默认图片，其中有新闻添加标题图时显示最近添加的一条新闻的标题图，如下图：<br>
+<img src="https://ltlixer.site/post-images/1585031659540.png" alt="" loading="lazy"></p>
+<p>思路：用标签将所有的新闻标题图获取到js数组中，再用js进行控制显示最近的一张图片</p>
+<p>用这种方法，当新闻数量很多的时候，就会有性能上的损失，页面加载会很卡。</p>
+<p>由于jeecms是用java开发的，我便尝试用了break标签（文档上没有的），竟然可以用，这就可以用tags获取到有标题图的最近一条新闻了。</p>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://ltlixer.site/post/2016-10-22-JEECMS-titleImg/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://ltlixer.site/post/2016-09-30-css-position-absolute-relative/">
+      关于位置position的absolute和relative属性
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2016-09-30</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://ltlixer.site/tag/g883qbVPT/">
+              <span>前端</span>
+            </a>、
+          
+        
+          
+            <a href="https://ltlixer.site/tag/zmmMzysV0k/">
+              <span>css</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>7分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1940<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <p>今天在用别人写的class的时候位置有点不对劲，就查看了一下代码，发现是position的位置问题。</p>
+<p>在搜索absolute和relative的时候发现一篇博文不错，记录并分享一下：</p>
+<blockquote>
+<h1 id="详解定位与定位应用"><a href="http://blog.sina.com.cn/s/blog_4bcf4a5e010008o0.html">详解定位与定位应用</a></h1>
+<p><a href="http://blog.sina.com.cn/mnzj">盟牛的博客</a></p>
+</blockquote>
+<p>定位一直是WEB标准应用中的难点，如果理不清楚定位那么可能应实现的效果实现不了，实现了的效果可能会走样。如果理清了定位的原理，那定位会让网页实现的更加完美。</p>
+<h2 id="定位的定义">定位的定义：</h2>
+<p>在CSS中关于定位的内容是：</p>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://ltlixer.site/post/2016-09-30-css-position-absolute-relative/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://ltlixer.site/post/2016-09-29-Echarts3-map-geoJson/">
+      Echarts使用地图时发现地图行政区划没更新
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2016-09-27</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://ltlixer.site/tag/g883qbVPT/">
+              <span>前端</span>
+            </a>、
+          
+        
+          
+            <a href="https://ltlixer.site/tag/2KPzoM4seF/">
+              <span>Echarts</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>5分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>916<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <p>在做一个项目的demo时，老大让我用echarts在首页做一个上海地图，上面显示各个区的数据。</p>
+<p>略一看，挺简单的嘛！下载js文件，在项目中加入链接，将echarts的示例复制一个过来。诶，json方式有问题，那就试试js方式吧。可以了！（lixer：既然js方式可以还去管json方式为什么不行干什么。）</p>
+<p>好了，接下来就更改更改，添加一些想要的东西。标题怎么加啊，地图上某个区域怎么加点击事件啊，，，只能去看api了，倒腾了2个小时，终于搞定了。下面是成果：</p>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://ltlixer.site/post/2016-09-29-Echarts3-map-geoJson/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://ltlixer.site/post/2016-05-18-JEECMS-Views/">
+      JEECMS内容浏览次数
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2016-05-18</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://ltlixer.site/tag/g883qbVPT/">
+              <span>前端</span>
+            </a>、
+          
+        
+          
+            <a href="https://ltlixer.site/tag/-YvrIldVra/">
+              <span>JEECMS</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>8分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1249<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <h2 id="内容浏览次数">内容浏览次数</h2>
+<p>加入浏览次数的页面必须的内容：</p>
+<pre><code class="language-html">&lt;head&gt;
+	&lt;script src=&quot;${resSys}/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;${resSys}/front.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		$(function() {
+		Cms.viewCount(&quot;${base}&quot;,&quot;${content.id}&quot;);
+		Cms.siteFlow(&quot;${base}&quot;, location.href, document.referrer);
+		});
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	浏览次数：&lt;span id=&quot;views&quot;&gt;&lt;/span&gt;
+&lt;/body&gt;
+</code></pre>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://ltlixer.site/post/2016-05-18-JEECMS-Views/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+  
+              
+              
+<div class="page bg-color">
+  <ul class="pagination-ul">
+    
+    
+      
+        <li class="pagination-li pagination-active">
+            <a href="/page/../">
+              1
+            </a>
+        </li>
+      
+    
+    
+  </ul>
+</div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By HsxyHao
+    </div>
+    <div class="poweredby">
+      
+    </div>
+  </footer>
+  
+  
+  <div class="gemini back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text'),
+  drawerBox = document.querySelector('#drawer_box'),
+  rightSideBar = document.querySelector('.sidebar'),
+  viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+   
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+  
+  window.addEventListener('scroll', function(e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+  
+  let hasCacu = false;
+  window.onresize = function() {
+    if (window.width > 991) {
+      calcuHeight();
+    } else {
+      hasCacu = false;
+    }
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+  
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function() {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, transitionDir,{ });
+          }
+        })
+        window.Velocity(viewport, openProp,{
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp ,{
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+
+</script>
+    </div>
+  </body>
+  <script src="/media/js/motion.js"></script>
+</html>

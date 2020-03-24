@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="流欣儿的个人博客">
+<meta name="description" content="ltlixer的点滴记录">
+<meta name="theme-color" content="#000">
+<title>JEECMS内容浏览次数 | 流欣儿</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1585033070538">
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/media/css/gemini.css">
+
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/github.css" rel="stylesheet">  
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+    <meta name="description" content="JEECMS内容浏览次数" />
+    <meta name="keywords" content="前端,JEECMS" />
+  </head>
+  <body>
+    <div class="head-top-line"></div>
+    <div class="header-box">
+      
+<div class=" gemini">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>流欣儿</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">宝宝宝宝啊宝</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+              
+                <a href="/archives" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+              
+                <a href="/tags" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+              
+                <a href="https://ltlixer.site/post/index" target="_self">
+                  <i class="fa fa-globe"></i> 关于
+                </a>
+              
+            </li>
+          
+          <li class="nav-item">
+            <a>
+              <i class="fa fa-search"></i> 搜索
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+    </div>
+    <div class="main-continer">
+      
+      <div class="section-layout gemini ">
+        <div class="section-layout-wrapper">
+          
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="https://ltlixer.site/images/avatar.png"/>
+    <p class="site-author-name">流欣儿</p>
+    <p class="site-description right-motion">ltlixer的点滴记录</p>
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">8</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
+      </div>
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="https://github.com/ltlixer">
+              <i class="fa fa-github-alt"></i> github
+            </a>
+          
+        
+        
+      </div>
+    </div>
+  
+
+
+</div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%86%85%E5%AE%B9%E6%B5%8F%E8%A7%88%E6%AC%A1%E6%95%B0">内容浏览次数</a></li>
+<li><a href="#frontjs%E6%BA%90%E7%A0%81">front.js源码</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    lList.push(elem);
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop + 10;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+addTocNumber(tocContent, '');
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+            </div>
+          
+        
+      </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://ltlixer.site/post/2016-05-18-JEECMS-Views/">
+      JEECMS内容浏览次数
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2016-05-18</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://ltlixer.site/tag/g883qbVPT/">
+              <span>前端</span>
+            </a>、
+          
+        
+          
+            <a href="https://ltlixer.site/tag/-YvrIldVra/">
+              <span>JEECMS</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>8分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1249<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+              <div class="post-body next-md-body" id="post_body">
+                <h2 id="内容浏览次数">内容浏览次数</h2>
+<p>加入浏览次数的页面必须的内容：</p>
+<pre><code class="language-html">&lt;head&gt;
+	&lt;script src=&quot;${resSys}/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;${resSys}/front.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		$(function() {
+		Cms.viewCount(&quot;${base}&quot;,&quot;${content.id}&quot;);
+		Cms.siteFlow(&quot;${base}&quot;, location.href, document.referrer);
+		});
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	浏览次数：&lt;span id=&quot;views&quot;&gt;&lt;/span&gt;
+&lt;/body&gt;
+</code></pre>
+<!-- more -->
+<h2 id="frontjs源码">front.js源码</h2>
+<pre><code class="language-javascript">Cms = {};
+/**
+ * 浏览次数
+ */
+Cms.viewCount = function(base, contentId, viewId, commentId, downloadId, upId,
+		downId) {
+	viewId = viewId || &quot;views&quot;;
+	commentId = commentId || &quot;comments&quot;;
+	downloadId = downloadId || &quot;downloads&quot;;
+	upId = upId || &quot;ups&quot;;
+	downId = downId || &quot;downs&quot;;
+	$.getJSON(base + &quot;/content_view.jspx&quot;, {
+		contentId : contentId
+	}, function(data) {
+		if (data.length &gt; 0) {
+			$(&quot;#&quot; + viewId).text(data[0]);
+			$(&quot;#&quot; + commentId).text(data[1]);
+			$(&quot;#&quot; + downloadId).text(data[2]);
+			$(&quot;#&quot; + upId).text(data[3]);
+			$(&quot;#&quot; + downId).text(data[4]);
+		}
+	});
+}
+/**
+ * 站点流量统计
+ */
+Cms.siteFlow = function(base, page, referer,flag,pvId, visitorId) {
+	pvId = pvId || &quot;pv&quot;;
+	visitorId = visitorId || &quot;visitor&quot;;
+	flag = flag || 1;
+	$.getJSON(base + &quot;/flow_statistic.jspx&quot;, {
+		page : page,
+		referer : referer
+	}, function(data) {
+		if(flag==1){
+			if (data.length &gt; 0) {
+				$(&quot;#&quot; + pvId).text(data[0]);
+				$(&quot;#&quot; + visitorId).text(data[1]);
+			}
+		}
+	});
+}
+/**
+ * 成功返回true，失败返回false。
+ */
+Cms.up = function(base, contentId, origValue, upId) {
+	upId = upId || &quot;ups&quot;;
+	var updown = $.cookie(&quot;_cms_updown_&quot; + contentId);
+	if (updown) {
+		return false;
+	}
+	$.cookie(&quot;_cms_updown_&quot; + contentId, &quot;1&quot;);
+	$.get(base + &quot;/content_up.jspx&quot;, {
+		&quot;contentId&quot; : contentId
+	}, function(data) {
+		$(&quot;#&quot; + upId).text(origValue + 1);
+	});
+	return true;
+}
+/**
+ * 成功返回true，失败返回false。
+ */
+Cms.down = function(base, contentId, origValue, downId) {
+	downId = downId || &quot;downs&quot;;
+	var updown = $.cookie(&quot;_cms_updown_&quot; + contentId);
+	if (updown) {
+		return false;
+	}
+	$.cookie(&quot;_cms_updown_&quot; + contentId, &quot;1&quot;);
+	$.get(base + &quot;/content_down.jspx&quot;, {
+		contentId : contentId
+	}, function(data) {
+		$(&quot;#&quot; + downId).text(origValue + 1);
+	});
+	return true;
+}
+/**
+ * 获取评分选项投票数
+ */
+Cms.scoreCount = function(base, contentId,itemPrefix) {
+	itemPrefix=itemPrefix||&quot;score-item-&quot;;
+	$.getJSON(base + &quot;/content_score_items.jspx&quot;, {
+		contentId : contentId
+	}, function(data) {
+			$(&quot;span[id^='&quot;+itemPrefix+&quot;']&quot;).each(function(){
+				var itemId=$(this).prop(&quot;id&quot;).split(itemPrefix)[1];
+				$(this).text(data.result[itemId]);
+			});
+	});
+}
+/**
+ * 成功返回true，失败返回false。
+ */
+Cms.score = function(base, contentId,itemId,itemPrefix) {
+	itemPrefix=itemPrefix||&quot;score-item-&quot;;
+	var score = $.cookie(&quot;_cms_score_&quot; + contentId);
+	if (score) {
+		return false;
+	}
+	$.cookie(&quot;_cms_score_&quot; + contentId, &quot;1&quot;);
+	$.get(base + &quot;/content_score.jspx&quot;, {
+		&quot;contentId&quot; : contentId,
+		&quot;itemId&quot;:itemId
+	}, function(data) {
+		if(data.succ){
+			$(&quot;#&quot;+itemPrefix + itemId).text(data.count);
+		}
+	});
+	return true;
+}
+/**
+ * 获取附件地址
+ */
+Cms.attachment = function(base, contentId, n, prefix) {
+	$.get(base + &quot;/attachment_url.jspx&quot;, {
+		&quot;cid&quot; : contentId,
+		&quot;n&quot; : n
+	}, function(data) {
+		var url;
+		for (var i = 0;i &lt; n; i++) {
+			url = base + &quot;/attachment.jspx?cid=&quot; + contentId + &quot;&amp;i=&quot; + i
+					+ data[i];
+			$(&quot;#&quot; + prefix + i).attr(&quot;href&quot;, url);
+		}
+	}, &quot;json&quot;);
+}
+/**
+ * 提交评论
+ */
+Cms.comment = function(callback, form) {
+	form = form || &quot;commentForm&quot;;
+	$(&quot;#&quot; + form).validate( {
+		submitHandler : function(form) {
+			$(form).ajaxSubmit( {
+				&quot;success&quot; : callback,
+				&quot;dataType&quot; : &quot;json&quot;
+			});
+		}
+	});
+}
+/**
+ * 获取评论列表
+ * 
+ * @param siteId
+ * @param contentId
+ * @param greatTo
+ * @param recommend
+ * @param orderBy
+ * @param count
+ */
+Cms.commentList = function(base, c, options) {
+	c = c || &quot;commentListDiv&quot;;
+	$(&quot;#&quot; + c).load(base + &quot;/comment_list.jspx&quot;, options);
+}
+/**
+ * 客户端包含登录
+ */
+Cms.loginCsi = function(base, c, options) {
+	c = c || &quot;loginCsiDiv&quot;;
+	$(&quot;#&quot; + c).load(base + &quot;/login_csi.jspx&quot;, options);
+}
+/**
+ * 向上滚动js类
+ */
+Cms.UpRoller = function(rid, speed, isSleep, sleepTime, rollRows, rollSpan,
+		unitHight) {
+	this.speed = speed;
+	this.rid = rid;
+	this.isSleep = isSleep;
+	this.sleepTime = sleepTime;
+	this.rollRows = rollRows;
+	this.rollSpan = rollSpan;
+	this.unitHight = unitHight;
+	this.proll = $('#roll-' + rid);
+	this.prollOrig = $('#roll-orig-' + rid);
+	this.prollCopy = $('#roll-copy-' + rid);
+	// this.prollLine = $('#p-roll-line-'+rid);
+	this.sleepCount = 0;
+	this.prollCopy[0].innerHTML = this.prollOrig[0].innerHTML;
+	var o = this;
+	this.pevent = setInterval(function() {
+		o.roll.call(o)
+	}, this.speed);
+}
+Cms.UpRoller.prototype.roll = function() {
+	if (this.proll[0].scrollTop &gt; this.prollCopy[0].offsetHeight) {
+		this.proll[0].scrollTop = this.rollSpan + 1;
+	} else {
+		if (this.proll[0].scrollTop % (this.unitHight * this.rollRows) == 0
+				&amp;&amp; this.sleepCount &lt;= this.sleepTime &amp;&amp; this.isSleep) {
+			this.sleepCount++;
+			if (this.sleepCount &gt;= this.sleepTime) {
+				this.sleepCount = 0;
+				this.proll[0].scrollTop += this.rollSpan;
+			}
+		} else {
+			var modCount = (this.proll[0].scrollTop + this.rollSpan)
+					% (this.unitHight * this.rollRows);
+			if (modCount &lt; this.rollSpan) {
+				this.proll[0].scrollTop += this.rollSpan - modCount;
+			} else {
+				this.proll[0].scrollTop += this.rollSpan;
+			}
+		}
+	}
+}
+Cms.LeftRoller = function(rid, speed, rollSpan) {
+	this.rid = rid;
+	this.speed = speed;
+	this.rollSpan = rollSpan;
+	this.proll = $('#roll-' + rid);
+	this.prollOrig = $('#roll-orig-' + rid);
+	this.prollCopy = $('#roll-copy-' + rid);
+	this.prollCopy[0].innerHTML = this.prollOrig[0].innerHTML;
+	var o = this;
+	this.pevent = setInterval(function() {
+		o.roll.call(o)
+	}, this.speed);
+}
+Cms.LeftRoller.prototype.roll = function() {
+	if (this.proll[0].scrollLeft &gt; this.prollCopy[0].offsetWidth) {
+		this.proll[0].scrollLeft = this.rollSpan + 1;
+	} else {
+		this.proll[0].scrollLeft += this.rollSpan;
+	}
+}
+/**
+ * 收藏信息
+ */
+Cms.collect = function(base, cId, operate,showSpanId,hideSpanId) {
+	$.post(base + &quot;/member/collect.jspx&quot;, {
+		&quot;cId&quot; : cId,
+		&quot;operate&quot; : operate
+	}, function(data) {
+		if(data.result){
+			if(operate==1){
+				alert(&quot;收藏成功！&quot;);
+				$(&quot;#&quot;+showSpanId).show();
+				$(&quot;#&quot;+hideSpanId).hide();
+			}else{
+				alert(&quot;取消收藏成功！&quot;);
+				$(&quot;#&quot;+showSpanId).hide();
+				$(&quot;#&quot;+hideSpanId).show();
+			}
+		}else{
+			alert(&quot;请先登录&quot;);
+		}
+	}, &quot;json&quot;);
+}
+/**
+ * 列表取消收藏信息
+ */
+Cms.cmsCollect = function(base, cId, operate) {
+	$.post(base + &quot;/member/collect.jspx&quot;, {
+		&quot;cId&quot; : cId,
+		&quot;operate&quot; : operate
+	}, function(data) {
+		if(data.result){
+			if(operate==1){
+				alert(&quot;收藏成功！&quot;);
+			}else{
+				alert(&quot;取消收藏成功！&quot;);
+				$(&quot;#tr_&quot;+cId).remove();
+			}
+		}else{
+			alert(&quot;请先登录&quot;);
+		}
+	}, &quot;json&quot;);
+}
+/**
+ * 检测是否已经收藏信息
+ */
+Cms.collectexist = function(base, cId,showSpanId,hideSpanId) {
+	$.post(base + &quot;/member/collect_exist.jspx&quot;, {
+		&quot;cId&quot; : cId
+	}, function(data) {
+		if(data.result){
+			$(&quot;#&quot;+showSpanId).show();
+			$(&quot;#&quot;+hideSpanId).hide();
+		}else{
+			$(&quot;#&quot;+showSpanId).hide();
+			$(&quot;#&quot;+hideSpanId).show();
+		}
+	}, &quot;json&quot;);
+}
+
+/**
+ * 申请职位信息
+ */
+Cms.jobApply = function(base, cId) {
+	$.post(base + &quot;/member/jobapply.jspx&quot;, {
+		&quot;cId&quot; : cId
+	}, function(data) {
+		if(data.result==-1){
+			alert(&quot;请先登录&quot;);
+		}else if(data.result==-2){
+			alert(&quot;职位id不能为空&quot;);
+		}else if(data.result==-3){
+			alert(&quot;未找到该职位&quot;);
+		}else if(data.result==-4){
+			alert(&quot;您还没有创建简历，请先完善简历&quot;);
+		}else if(data.result==0){
+			alert(&quot;您今天已经申请了该职位!&quot;);
+		}else if(data.result==1){
+			alert(&quot;成功申请了该职位!&quot;);
+		}
+	}, &quot;json&quot;);
+}
+</code></pre>
+
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      流欣儿
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ltlixer.site/post/2016-05-18-JEECMS-Views/" title="JEECMS内容浏览次数">JEECMS内容浏览次数</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://ltlixer.site/tag/g883qbVPT/"># 前端</a>
+    
+      <a href="https://ltlixer.site/tag/-YvrIldVra/"># JEECMS</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="Echarts使用地图时发现地图行政区划没更新" href="https://ltlixer.site/post/2016-09-29-Echarts3-map-geoJson/">Echarts使用地图时发现地图行政区划没更新</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Echarts使用地图时发现地图行政区划没更新" href="https://ltlixer.site/post/2016-09-29-Echarts3-map-geoJson/">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+    </div>
+  </div>
+</div>
+              
+                
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By HsxyHao
+    </div>
+    <div class="poweredby">
+      
+    </div>
+  </footer>
+  
+  
+  <div class="gemini back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text'),
+  drawerBox = document.querySelector('#drawer_box'),
+  rightSideBar = document.querySelector('.sidebar'),
+  viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+   
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+  
+  window.addEventListener('scroll', function(e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+  
+  let hasCacu = false;
+  window.onresize = function() {
+    if (window.width > 991) {
+      calcuHeight();
+    } else {
+      hasCacu = false;
+    }
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+  
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function() {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, transitionDir,{ });
+          }
+        })
+        window.Velocity(viewport, openProp,{
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp ,{
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+
+</script>
+    </div>
+  </body>
+  <script src="/media/js/motion.js"></script>
+</html>
