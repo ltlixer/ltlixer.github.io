@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ltlixer.site</id>
     <title>流欣儿</title>
-    <updated>2020-03-24T09:30:42.271Z</updated>
+    <updated>2020-03-29T15:51:24.205Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ltlixer.site"/>
     <link rel="self" href="https://ltlixer.site/atom.xml"/>
@@ -10,6 +10,515 @@
     <logo>https://ltlixer.site/images/avatar.png</logo>
     <icon>https://ltlixer.site/favicon.ico</icon>
     <rights>All rights reserved 2020, 流欣儿</rights>
+    <entry>
+        <title type="html"><![CDATA[分布式应用搭建（一）SpringBoot+MyBatisPlus多模块项目搭建]]></title>
+        <id>https://ltlixer.site/post/fen-bu-shi-ying-yong-da-jian-yi-springbootmybatisplus-duo-mo-kuai-xiang-mu-da-jian/</id>
+        <link href="https://ltlixer.site/post/fen-bu-shi-ying-yong-da-jian-yi-springbootmybatisplus-duo-mo-kuai-xiang-mu-da-jian/">
+        </link>
+        <updated>2020-03-29T14:20:11.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="前言">前言</h1>
+<p>最近由于项目交接，开始进行新项目开发，框架选型为SpringBoot+Dubbo分布式应用。本片主要记录在IDEA中搭建SpringBoot多模块项目的过程。</p>
+<h2 id="开发工具及系统环境">开发工具及系统环境</h2>
+<ul>
+<li>IDE：IntelliJ IDEA 2019.3</li>
+<li>系统环境：mac OSX</li>
+</ul>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="前言">前言</h1>
+<p>最近由于项目交接，开始进行新项目开发，框架选型为SpringBoot+Dubbo分布式应用。本片主要记录在IDEA中搭建SpringBoot多模块项目的过程。</p>
+<h2 id="开发工具及系统环境">开发工具及系统环境</h2>
+<ul>
+<li>IDE：IntelliJ IDEA 2019.3</li>
+<li>系统环境：mac OSX</li>
+</ul>
+<!-- more -->
+<h2 id="项目目录结构">项目目录结构</h2>
+<pre><code> . spring-boot-admin
+│  pom.xml
+│  README.md
+│  
+├─bootadmin-api（服务化工程对外暴露接口）
+│    └─src.main.java
+│         └─usys服务化节点名称
+│             └─dto
+│             └─service
+├─bootadmin-core（服务化节点核心包）
+└─bootadmin-usys（用户管理服务化节点）
+      └─src.main.java
+           └─usys包根路径
+                └─entity
+                └─mapper
+                └─service.impl
+</code></pre>
+<h1 id="搭建步骤">搭建步骤</h1>
+<ol>
+<li>创建父工程</li>
+</ol>
+<ul>
+<li>IDEA 工具栏选择菜单 File -&gt; New -&gt; Project...</li>
+<li>选择Spring Initializr，Initializr默认选择Default，点击Next</li>
+<li>填写输入框，点击Next</li>
+<li>这步不需要选择直接点Next</li>
+<li>点击Finish创建项目</li>
+<li>删除无用的.mvn目录、src目录、mvnw及mvnw.cmd文件，最终只留.gitignore和pom.xml<br>
+<img src="https://ltlixer.site/post-images/1585494803784.png" alt="" loading="lazy"></li>
+</ul>
+<ol start="2">
+<li>创建子模块</li>
+</ol>
+<ul>
+<li>选择项目根目录beta右键呼出菜单，选择New -&gt; Module</li>
+<li>选择Maven，点击Next</li>
+<li>填写ArifactId，点击Next</li>
+<li>修改Module name增加横杠提升可读性，点击Finish</li>
+<li>同理添加其他子模块，最终得到项目目录结构如下图<br>
+<img src="https://ltlixer.site/post-images/1585494803784.png" alt="" loading="lazy"></li>
+</ul>
+<ol start="3">
+<li>搭建并运行</li>
+</ol>
+<ul>
+<li>父工程pom.xml</li>
+</ul>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.ltlixer&lt;/groupId&gt;
+    &lt;artifactId&gt;bootadmin&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+    &lt;packaging&gt;pom&lt;/packaging&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.2.3.RELEASE&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;modules&gt;
+        &lt;module&gt;bootadmin-core&lt;/module&gt;
+        &lt;module&gt;bootadmin-usys&lt;/module&gt;
+        &lt;module&gt;bootadmin-api&lt;/module&gt;
+    &lt;/modules&gt;
+
+    &lt;properties&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+        &lt;lombok.version&gt;1.18.12&lt;/lombok.version&gt;
+        &lt;druid.version&gt;1.0.28&lt;/druid.version&gt;
+        &lt;mybatisplus.spring.boot.version&gt;3.3.1&lt;/mybatisplus.spring.boot.version&gt;
+        &lt;pagehelper.spring.boot.version&gt;1.2.5&lt;/pagehelper.spring.boot.version&gt;
+    &lt;/properties&gt;
+
+&lt;/project&gt;
+</code></pre>
+<ul>
+<li>核心项目bootadmin-core的pom.xml</li>
+</ul>
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;artifactId&gt;bootadmin-core&lt;/artifactId&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+	&lt;parent&gt;
+        &lt;groupId&gt;com.ltlixer&lt;/groupId&gt;
+        &lt;artifactId&gt;bootadmin&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
+        &lt;relativePath&gt;../pom.xml&lt;/relativePath&gt;
+    &lt;/parent&gt;
+
+    &lt;dependencies&gt;
+		&lt;!-- springMVC --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+
+		&lt;!-- MySQL数据源 --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;mysql&lt;/groupId&gt;
+			&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+		&lt;!-- alibaba的druid数据库连接池 --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+			&lt;artifactId&gt;druid&lt;/artifactId&gt;
+			&lt;version&gt;${druid.version}&lt;/version&gt;
+		&lt;/dependency&gt;
+		&lt;!-- mybatis-plus集成 --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+			&lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
+			&lt;version&gt;${mybatisplus.spring.boot.version}&lt;/version&gt;
+		&lt;/dependency&gt;
+		&lt;!-- mybatis分页插件 --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+			&lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;
+			&lt;version&gt;${pagehelper.spring.boot.version}&lt;/version&gt;
+			&lt;exclusions&gt;
+				&lt;exclusion&gt;
+					&lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+					&lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+				&lt;/exclusion&gt;
+				&lt;exclusion&gt;
+					&lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+					&lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+				&lt;/exclusion&gt;
+			&lt;/exclusions&gt;
+		&lt;/dependency&gt;
+
+		&lt;!-- lombok --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+			&lt;artifactId&gt;lombok&lt;/artifactId&gt;
+			&lt;version&gt;${lombok.version}&lt;/version&gt;
+		&lt;/dependency&gt;
+
+		&lt;!-- springboot热部署工具 --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+			&lt;optional&gt;true&lt;/optional&gt;
+		&lt;/dependency&gt;
+		&lt;!-- 单元测试 --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+		&lt;!-- properties配置文件读取 --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
+			&lt;optional&gt;true&lt;/optional&gt;
+		&lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+				&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+				&lt;configuration&gt;
+					&lt;source&gt;${maven.compiler.source}&lt;/source&gt;
+					&lt;target&gt;${maven.compiler.target}&lt;/target&gt;
+					&lt;parameters&gt;true&lt;/parameters&gt;
+				&lt;/configuration&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<ul>
+<li>bootadmin-api的pom.xml</li>
+</ul>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;artifactId&gt;bootadmin-api&lt;/artifactId&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;com.ltlixer&lt;/groupId&gt;
+        &lt;artifactId&gt;bootadmin&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
+        &lt;relativePath&gt;../pom.xml&lt;/relativePath&gt;
+    &lt;/parent&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- lombok --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;version&gt;${lombok.version}&lt;/version&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;
+</code></pre>
+<ul>
+<li>在bootadmin-api添加com.ltlixer.bootadmin.api.dto.UserDto.java</li>
+</ul>
+<pre><code class="language-java">package com.ltlixer.bootadmin.api.dto;
+
+import lombok.Data;
+
+import java.io.Serializable;
+
+@Data
+public class UserDto implements Serializable {
+    private String username;
+    private String sex;
+    private String mobile;
+}
+</code></pre>
+<ul>
+<li>在bootadmin-api添加com.ltlixer.bootadmin.api.service.UserService.java</li>
+</ul>
+<pre><code class="language-java">package com.ltlixer.bootadmin.api.service;
+
+import com.ltlixer.bootadmin.api.dto.UserDto;
+
+import java.util.List;
+
+public interface UserService {
+    /**
+     * 获取用户列表
+     *
+     * @return 用户列表
+     */
+    List&lt;UserDto&gt; listUsers();
+
+    /**
+     * 新增用户
+     * @param user 用户信息
+     */
+    void saveUser(UserDto user);
+}
+</code></pre>
+<ul>
+<li>bootadmin-usys的pom.xml</li>
+</ul>
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+	xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+	&lt;artifactId&gt;bootadmin-usys&lt;/artifactId&gt;
+	&lt;packaging&gt;jar&lt;/packaging&gt;
+
+	&lt;parent&gt;
+		&lt;groupId&gt;com.ltlixer&lt;/groupId&gt;
+		&lt;artifactId&gt;bootadmin&lt;/artifactId&gt;
+		&lt;version&gt;1.0.0&lt;/version&gt;
+		&lt;relativePath&gt;../pom.xml&lt;/relativePath&gt;
+	&lt;/parent&gt;
+
+	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;com.ltlixer&lt;/groupId&gt;
+			&lt;artifactId&gt;bootadmin-core&lt;/artifactId&gt;
+			&lt;version&gt;1.0.0&lt;/version&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;com.ltlixer&lt;/groupId&gt;
+			&lt;artifactId&gt;bootadmin-api&lt;/artifactId&gt;
+			&lt;version&gt;1.0.0&lt;/version&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+&lt;/project&gt;
+</code></pre>
+<ul>
+<li>在bootadmin-usys编辑application.yml</li>
+</ul>
+<pre><code class="language-yml">spring:
+  datasource:
+    # 数据源基本配置
+    url: jdbc:mysql://alimysql.ltlixer.site:3306/spring_boot_admin_v1?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8&amp;useSSL=false&amp;useInformationSchema=true
+    username: root
+    password: Pass1234
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 数据源连接池配置
+    druid:
+      # 初始化大小
+      initialSize: 5
+      # 最大连接数
+      maxActive: 20
+      # 最小连接数
+      minIdle: 5
+      # 获取连接等待超时时间
+      maxWait: 60000
+      # 间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: false
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.ltlixer.bootadmin.console.entity
+  check-config-location: true
+  configuration:
+    #是否开启自动驼峰命名规则（camel case）映射
+    map-underscore-to-camel-case: true
+    #全局地开启或关闭配置文件中的所有映射器已经配置的任何缓存
+    cache-enabled: false
+    call-setters-on-nulls: true
+    #配置JdbcTypeForNull, oracle数据库必须配置
+    jdbc-type-for-null: 'null'
+    #MyBatis 自动映射时未知列或未知属性处理策略 NONE：不做任何处理 (默认值), WARNING：以日志的形式打印相关警告信息, FAILING：当作映射失败处理，并抛出异常和详细信息
+    auto-mapping-unknown-column-behavior: warning
+  global-config:
+    banner: false
+    db-config:
+      #主键类型  0:&quot;数据库ID自增&quot;, 1:&quot;未设置主键类型&quot;,2:&quot;用户输入ID (该类型可以通过自己注册自动填充插件进行填充)&quot;, 3:&quot;全局唯一ID (idWorker), 4:全局唯一ID (UUID), 5:字符串全局唯一ID (idWorker 的字符串表示)&quot;;
+      id-type: UUID
+      #字段验证策略 IGNORED:&quot;忽略判断&quot;, NOT_NULL:&quot;非NULL判断&quot;, NOT_EMPTY:&quot;非空判断&quot;, DEFAULT 默认的,一般只用于注解里(1. 在全局里代表 NOT_NULL,2. 在注解里代表 跟随全局)
+      field-strategy: NOT_EMPTY
+      #数据库大写下划线转换
+      capital-mode: true
+      #逻辑删除值
+      logic-delete-value: 0
+      #逻辑未删除值
+      logic-not-delete-value: 1
+
+server.port: 8081
+</code></pre>
+<ul>
+<li>在bootadmin-usys添加resources/mapper目录，并新建CoreUserMapper.xml</li>
+</ul>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;com.ltlixer.bootadmin.usys.mapper.CoreUserMapper&quot;&gt;
+&lt;/mapper&gt;
+</code></pre>
+<ul>
+<li>在bootadmin-usys中添加com.ltlixer.bootadmin.usys.entity.CoreUser.java</li>
+</ul>
+<pre><code class="language-java">package com.ltlixer.bootadmin.usys.entity;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
+import java.util.Date;
+
+@Data
+@TableName(&quot;core_user&quot;)
+public class CoreUser{
+	private Long id;
+	// 删除标识
+	private Integer delFlag= 0;
+	// 创建时间
+	protected Date createTime;
+	// 用户姓名
+	private String name;
+
+	// 组织机构id
+	private Long orgId;
+
+	// 密码
+	private String password;
+	
+	private String state;
+	
+	//扩展例子
+	private String jobType0;
+	
+	private String jobType1;
+	
+	
+	private Date updateTime;
+	
+	/*用户的个人资料附件，保存到Core_File 表里*/
+	private String attachmentId;
+
+}
+</code></pre>
+<ul>
+<li>在bootadmin-usys中添加com.ltlixer.bootadmin.usys.mapper.CoreUserMapper.java</li>
+</ul>
+<pre><code class="language-java">package com.ltlixer.bootadmin.usys.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ltlixer.bootadmin.usys.entity.CoreUser;
+
+public interface CoreUserMapper extends BaseMapper&lt;CoreUser&gt; {
+
+}
+</code></pre>
+<ul>
+<li>在bootadmin-usys中添加com.ltlixer.bootadmin.usys.service.impl.UserServiceImpl.xml</li>
+</ul>
+<pre><code class="language-java">package com.ltlixer.bootadmin.usys.service.impl;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ltlixer.bootadmin.api.dto.UserDto;
+import com.ltlixer.bootadmin.api.service.UserService;
+import com.ltlixer.bootadmin.usys.entity.CoreUser;
+import com.ltlixer.bootadmin.usys.mapper.CoreUserMapper;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+@Transactional
+public class UserServiceImpl extends ServiceImpl&lt;CoreUserMapper, CoreUser&gt; implements UserService {
+
+    @Override
+    public List&lt;UserDto&gt; listUsers() {
+        List&lt;CoreUser&gt; coreUsers = baseMapper.selectList(null);
+        ArrayList&lt;UserDto&gt; userDtos = new ArrayList&lt;&gt;();
+        UserDto userDto;
+        for (CoreUser coreUser: coreUsers) {
+            userDto = new UserDto();
+            userDto.setUsername(coreUser.getId().toString());
+            userDto.setMobile(coreUser.getAttachmentId());
+            userDto.setSex(&quot;1&quot;);
+            userDtos.add(userDto);
+        }
+        return userDtos;
+    }
+
+    @Override
+    public void saveUser(UserDto user) {
+        CoreUser coreUser = new CoreUser();
+        coreUser.setName(user.getUsername());
+        coreUser.setDelFlag(1);
+        coreUser.setAttachmentId(user.getMobile());
+        coreUser.setId((long) user.getUsername().hashCode());
+        baseMapper.insert(coreUser);
+    }
+}
+</code></pre>
+<ul>
+<li>在bootadmin-usys编辑UsysApplication.java</li>
+</ul>
+<pre><code class="language-java">package com.ltlixer.bootadmin.usys;
+
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
+
+@MapperScan(&quot;com.ltlixer.bootadmin.**.mapper*&quot;)
+@SpringBootApplication
+@EnableCaching
+@EnableDubbo
+public class UsysApplication extends SpringBootServletInitializer  {
+	
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(UsysApplication.class);
+    }
+    
+    public static void main(String[] args) {
+    	
+        SpringApplication.run(UsysApplication.class, args);
+    }
+}	
+</code></pre>
+<ul>
+<li>运行UsysApplication.java，结果如下图所示<br>
+<img src="https://ltlixer.site/post-images/1585496847413.png" alt="" loading="lazy"></li>
+</ul>
+<h1 id="总结">总结</h1>
+<p>一个层次分明的多模块工程结构不仅方便维护，而且有利于后续微服务化。在此结构的基础上还可以扩展common层（公共组件）。此为项目重构的第一步，后续还会的框架中集成sharding-jdbc、redis、dubbo等组件。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ionic 打包 报错Execution failed for task ':processDebugResources'. > com.android.ide.common.process.ProcessException:Failed to execute aapt]]></title>
         <id>https://ltlixer.site/post/2018-03-15-ionic打包报错processDebugResources/</id>
